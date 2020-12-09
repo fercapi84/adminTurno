@@ -26817,7 +26817,7 @@ function positionElements(hostElement, targetElement, placement, appendToBody, b
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"my-col-40\">\r\n    <!-- filtros-->\r\n    <div class=\"cuadro-formulario\">\r\n        <h1>Buscar turnos</h1>\r\n\r\n        <div class=\"row clearfix\">\r\n            <mat-form-field style=\"width: 100%;\">\r\n                <mat-label>Profesional</mat-label>\r\n                <input type=\"text\" name=\"nombreField\" placeholder=\"buscar\" matInput \r\n                    [formControl]=\"profesionalFC\" \r\n                    [matAutocomplete]=\"autoProf\"\r\n                    #autoProfComplete=\"matAutocompleteTrigger\"\r\n                    (keyup.enter)=\"onEnterE($event, 'nombreField')\"\r\n                    (keyup)=\"onEnterE2($event, 'nombreField')\"\r\n                >\r\n                <mat-autocomplete autoActiveFirstOption #autoProf=\"matAutocomplete\" [displayWith]=\"displayProf\" >\r\n                    <mat-option *ngFor=\"let e of filteredProfesionales$ | async\" [value]=\"e\"\r\n                        (selectionChange)=\"cambioProfesional($event);\" >\r\n                        {{e.codigo}} {{e.nombreApellido}}\r\n                    </mat-option>\r\n                </mat-autocomplete>\r\n                <button mat-icon-button matSuffix (click)=\"clearProfesional()\" \r\n                   *ngIf=\"profesionalFC.value != undefined && profesionalFC?.value !== ''\">\r\n                   <mat-icon>clear</mat-icon>\r\n                </button>                   \r\n            </mat-form-field>                   \r\n            <!--div class=\"texto\">\r\n                <span>{{profesional?.nombreApellido}}</span>\r\n            </div-->            \r\n        </div>\r\n        <!--div class=\"row clearfix\">\r\n            <mat-form-field style=\"width: 100%;\">\r\n                <mat-label>Especialidad</mat-label>\r\n                <input matInput \r\n                    [formControl]=\"especialidadFC\" name=\"especialidadField\"\r\n                   placeholder=\"Seleccione\" (keyup.enter)=\"busqEspecialidad()\">\r\n                <button mat-icon-button matSuffix (click)=\"clearEspecialidad()\" \r\n                   *ngIf=\"especialidadFC.value != undefined && especialidadFC?.value !== ''\">\r\n                   <mat-icon>clear</mat-icon>\r\n                </button>   \r\n            </mat-form-field>                             \r\n        </div-->        \r\n        <div class=\"row clearfix\">\r\n            <mat-form-field style=\"width: 100%;\">\r\n                <mat-label>Obra Social</mat-label>\r\n                <input type=\"text\" name=\"osField\" placeholder=\"Seleccione una\" matInput \r\n                    [formControl]=\"obraSocialFC\" \r\n                    [matAutocomplete]=\"autoOS\"\r\n                    #autoObraComplete=\"matAutocompleteTrigger\">\r\n                <mat-autocomplete autoActiveFirstOption #autoOS=\"matAutocomplete\" [displayWith]=\"displayOS\" \r\n                    (selectedValueChange)=\"cambioObraSocial($event);\">\r\n                    <mat-option *ngFor=\"let os of filteredObrasSociales$ | async\" [value]=\"os\">\r\n                        {{os.codigo}} {{os.nombre}}\r\n                    </mat-option>\r\n                </mat-autocomplete>\r\n                <button mat-icon-button matSuffix (click)=\"clearOS()\" \r\n                *ngIf=\"obraSocialFC.value != undefined && obraSocialFC?.value !== ''\">\r\n                    <mat-icon>clear</mat-icon>\r\n                </button>\r\n                <mat-error *ngIf=\"obraSocialFC.invalid\">Seleccione una Obra Social</mat-error>\r\n            </mat-form-field>\r\n        </div>   \r\n \r\n        <div class=\"row clearfix\">\r\n            <button style=\"width: 100%;\" class=\"button\" mat-flat-button \r\n                [disabled]=\"!isValid()\" (click)=\"buscarTurnos()\">\r\n                BUSCAR\r\n            </button>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<!-- calendar -->\r\n<div class=\"calendar my-col-30-r\">\r\n    <div class=\"cuadro-formulario\">\r\n        <mat-grid-list cols=\"4\">\r\n            <mat-calendar \r\n                [selected]=\"selectedDate\" \r\n                [startAt]=\"startAt\"\r\n                [minDate]=\"minDate\" \r\n                [maxDate]=\"maxDate\" \r\n                [dateFilter]=\"myDateFilter\"\r\n                (selectedChange)=\"onSelectDate($event)\">\r\n            </mat-calendar>\r\n          \r\n            <!--mat-grid-tile>\r\n                <p class=\"cal_date\">{{DayAndDate}}, {{year}}</p>\r\n            </mat-grid-tile-->\r\n        </mat-grid-list>\r\n    </div>\r\n</div>\r\n\r\n<!-- tabla rangos horarios semana -->\r\n<div class=\"horarios my-col-30-r\">\r\n    <div class=\"cuadro-formulario\">\r\n        <h1>Horarios Profesional</h1>\r\n        <div class=\"row clearfix\">\r\n            <table mat-table [dataSource]=\"profesional?.horario\" class=\"mat-elevation-z8\">\r\n                <ng-container matColumnDef=\"dia\">\r\n                    <th mat-header-cell *matHeaderCellDef> Día </th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.diaSemana}} </td>\r\n                </ng-container>\r\n                \r\n                <ng-container matColumnDef=\"amDesde\">\r\n                    <th mat-header-cell *matHeaderCellDef >Mañana</th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.rangoAM?.horaDesde}} </td>\r\n                </ng-container>\r\n                <ng-container matColumnDef=\"amHasta\">\r\n                    <th mat-header-cell *matHeaderCellDef></th> \r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.rangoAM?.horaHasta}} </td>\r\n                </ng-container>\r\n\r\n                <ng-container matColumnDef=\"pmDesde\">\r\n                    <th mat-header-cell *matHeaderCellDef> Tarde </th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.rangoPM?.horaDesde}} </td>\r\n                </ng-container>\r\n                <ng-container matColumnDef=\"pmHasta\">\r\n                    <th mat-header-cell *matHeaderCellDef></th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.rangoPM?.horaHasta}} </td>\r\n                </ng-container>\r\n\r\n                <tr class=\"filaHorarios\" mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n                <tr class=\"filaHorarios\" mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n            </table>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<!-- turnos -->\r\n<div class=\"turnos my-col-100\">\r\n    <div class=\"cuadro-formulario\">\r\n        <h1>Turnos</h1>\r\n        <p class=\"cal_date\"> {{fechaFiltro | date: 'dd/MM/yyyy'}} </p>\r\n        <div class=\"row clearfix\">\r\n            <mat-chip class=\"textoSinTurnos\">\r\n                {{licencia?.motivo}} ( \r\n                    {{licencia?.fechaDesde | date: 'dd/MM/yyyy'}} \r\n                    al \r\n                    {{licencia?.fechaHasta | date: 'dd/MM/yyyy'}} \r\n                )\r\n            </mat-chip>\r\n        </div>  \r\n\r\n        <mat-chip-list #chipList aria-label=\"Turnos\">\r\n            <mat-chip *ngFor=\"let turno of turnos\" \r\n                class=\"chipColorLibre\">\r\n                {{turno.fechaHora | date: 'hh:mm'}}\r\n            </mat-chip>\r\n            <mat-chip class=\"chipColorConfirmado\">17:00</mat-chip>\r\n            <mat-chip class=\"chipColorAsignado\">17:15</mat-chip>\r\n            <mat-chip class=\"chipColorSobreturno\">17:30</mat-chip>            \r\n        </mat-chip-list>\r\n\r\n        <div class=\"row clearfix\">\r\n            <mat-icon class=\"colorLibre\" aria-hidden=\"false\" aria-label=\"Libre\">label</mat-icon>\r\n            <div class=\"texto\"><span>Libre</span></div>   \r\n            <mat-icon class=\"colorSobreturno\" aria-hidden=\"false\" aria-label=\"Sobreturno\">label</mat-icon>\r\n            <div class=\"texto\"><span>Sobreturno</span></div>   \r\n            <mat-icon class=\"colorAsignado\" aria-hidden=\"false\" aria-label=\"Asignado\">label</mat-icon>\r\n            <div class=\"texto\"><span>Asignado</span></div>   \r\n            <mat-icon class=\"colorConfirmado\" aria-hidden=\"false\" aria-label=\"Confirmado\">label</mat-icon>\r\n            <div class=\"texto\"><span>Confirmado</span></div>   \r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n<div class=\"alertas my-col-100\">\r\n    <!-- mensajes profesional -->\r\n    <div class=\"my-col-50\">\r\n        <div class=\"cuadro-formulario\">\r\n            <h1>Atención! Alertas del profesional</h1>\r\n            <span *ngFor=\"let alerta of profesional?.alertas\">\r\n                {{alerta}}\r\n                <br>\r\n            </span> \r\n        </div>\r\n    </div>    \r\n    <!-- mensajes obra social -->\r\n    <div class=\"my-col-50-r\">\r\n        <div class=\"cuadro-formulario\">\r\n            <h1>Atención! Alertas de la obra social</h1>\r\n            <span *ngFor=\"let alerta of obraSocial?.alertas\">\r\n                {{alerta}}\r\n                <br>\r\n            </span> \r\n        </div>\r\n    </div>    \r\n</div>\r\n\r\n<!-- -->\r\n<span  style=\"border: 2px solid transparent;\" #footer autofocus></span>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"my-col-40\">\r\n    <!-- filtros-->\r\n    <div class=\"cuadro-formulario\">\r\n        <h1>Buscar turnos</h1>\r\n\r\n        <div class=\"row clearfix\">\r\n            <mat-form-field style=\"width: 100%;\">\r\n                <mat-label>Profesional</mat-label>\r\n                <input type=\"text\" name=\"nombreField\" placeholder=\"buscar\" matInput \r\n                    [formControl]=\"profesionalFC\" \r\n                    [matAutocomplete]=\"autoProf\"\r\n                    #autoProfComplete=\"matAutocompleteTrigger\"\r\n                    (keyup.enter)=\"onEnterE($event, 'nombreField')\"\r\n                    (keyup)=\"onEnterE2($event, 'nombreField')\"\r\n                >\r\n                <mat-autocomplete autoActiveFirstOption #autoProf=\"matAutocomplete\" [displayWith]=\"displayProf\" >\r\n                    <mat-option *ngFor=\"let e of filteredProfesionales$ | async\" [value]=\"e\"\r\n                        (selectionChange)=\"cambioProfesional($event);\" >\r\n                        {{e.codigo}} {{e.nombreApellido}}\r\n                    </mat-option>\r\n                </mat-autocomplete>\r\n                <button mat-icon-button matSuffix (click)=\"clearProfesional()\" \r\n                   *ngIf=\"profesionalFC.value != undefined && profesionalFC?.value !== ''\">\r\n                   <mat-icon>clear</mat-icon>\r\n                </button>                   \r\n            </mat-form-field>                   \r\n            <!--div class=\"texto\">\r\n                <span>{{profesional?.nombreApellido}}</span>\r\n            </div-->            \r\n        </div>\r\n        <div class=\"row clearfix\" *ngIf=\"profesional != undefined && profesional?.especialidad != undefined\">\r\n            <span class=\"labelForm\">Especialidad Profesional:</span>\r\n        </div>\r\n        <div class=\"row clearfix\" *ngIf=\"profesional != undefined && profesional?.especialidad != undefined\">\r\n            <span *ngFor=\"let especialidad of profesional?.especialidad; last as isLast\">\r\n                {{ especialidad.nombre }}<span *ngIf=\"!isLast\">,&nbsp;</span>\r\n            </span>\r\n        </div>\r\n        <div class=\"row clearfix\">\r\n            <mat-form-field style=\"width: 100%;\">\r\n                <mat-label>Obra Social</mat-label>\r\n                <input type=\"text\" name=\"osField\" placeholder=\"Seleccione una\" matInput \r\n                    [formControl]=\"obraSocialFC\" \r\n                    [matAutocomplete]=\"autoOS\"\r\n                    #autoObraComplete=\"matAutocompleteTrigger\">\r\n                <mat-autocomplete autoActiveFirstOption #autoOS=\"matAutocomplete\" [displayWith]=\"displayOS\" \r\n                    (selectedValueChange)=\"cambioObraSocial($event);\">\r\n                    <mat-option *ngFor=\"let os of filteredObrasSociales$ | async\" [value]=\"os\">\r\n                        {{os.codigo}} {{os.nombre}}\r\n                    </mat-option>\r\n                </mat-autocomplete>\r\n                <button mat-icon-button matSuffix (click)=\"clearOS()\" \r\n                *ngIf=\"obraSocialFC.value != undefined && obraSocialFC?.value !== ''\">\r\n                    <mat-icon>clear</mat-icon>\r\n                </button>\r\n                <mat-error *ngIf=\"obraSocialFC.invalid\">Seleccione una Obra Social</mat-error>\r\n            </mat-form-field>\r\n        </div>   \r\n \r\n        <div class=\"row clearfix\">\r\n            <button style=\"width: 100%;\" class=\"button\" mat-flat-button \r\n                [disabled]=\"!isValid()\" (click)=\"buscarTurnos()\">\r\n                BUSCAR\r\n            </button>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<!-- calendar -->\r\n<div class=\"calendar my-col-30-r\">\r\n    <div class=\"cuadro-formulario\">\r\n        <mat-grid-list cols=\"4\">\r\n            <mat-calendar \r\n                [selected]=\"selectedDate\" \r\n                [startAt]=\"startAt\"\r\n                [minDate]=\"minDate\" \r\n                [maxDate]=\"maxDate\" \r\n                [dateFilter]=\"myDateFilter\"\r\n                (selectedChange)=\"onSelectDate($event)\">\r\n            </mat-calendar>\r\n          \r\n            <!--mat-grid-tile>\r\n                <p class=\"cal_date\">{{DayAndDate}}, {{year}}</p>\r\n            </mat-grid-tile-->\r\n        </mat-grid-list>\r\n    </div>\r\n</div>\r\n\r\n<!-- tabla rangos horarios semana -->\r\n<div class=\"horarios my-col-30-r\">\r\n    <div class=\"cuadro-formulario\">\r\n        <h1>Horarios Profesional</h1>\r\n        <div class=\"row clearfix\">\r\n            <table mat-table [dataSource]=\"profesional?.horario\" class=\"mat-elevation-z8\">\r\n                <ng-container matColumnDef=\"dia\">\r\n                    <th mat-header-cell *matHeaderCellDef> Día </th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.diaSemana}} </td>\r\n                </ng-container>\r\n                \r\n                <ng-container matColumnDef=\"amDesde\">\r\n                    <th mat-header-cell *matHeaderCellDef >Mañana</th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.rangoAM?.horaDesde}} </td>\r\n                </ng-container>\r\n                <ng-container matColumnDef=\"amHasta\">\r\n                    <th mat-header-cell *matHeaderCellDef></th> \r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.rangoAM?.horaHasta}} </td>\r\n                </ng-container>\r\n\r\n                <ng-container matColumnDef=\"pmDesde\">\r\n                    <th mat-header-cell *matHeaderCellDef> Tarde </th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.rangoPM?.horaDesde}} </td>\r\n                </ng-container>\r\n                <ng-container matColumnDef=\"pmHasta\">\r\n                    <th mat-header-cell *matHeaderCellDef></th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.rangoPM?.horaHasta}} </td>\r\n                </ng-container>\r\n\r\n                <tr class=\"filaHorarios\" mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n                <tr class=\"filaHorarios\" mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n            </table>\r\n        </div>\r\n        <div class=\"row clearfix\">\r\n            <button style=\"width: 100%;\" class=\"button\" mat-flat-button \r\n                (click)=\"buscarLicencias()\">\r\n                LICENCIAS\r\n            </button>\r\n        </div>        \r\n    </div>\r\n</div>\r\n\r\n\r\n<!-- turnos -->\r\n<div class=\"turnos my-col-100\">\r\n    <div class=\"cuadro-formulario\">\r\n        <h1>Turnos</h1>\r\n        <p class=\"cal_date\"> {{fechaFiltro | date: 'dd/MM/yyyy'}} </p>\r\n        <div class=\"row clearfix\" *ngIf=\"licencia != undefined && licencia.fechaDesde != undefined\" >\r\n            <mat-chip class=\"textoSinTurnos\">\r\n                {{licencia?.motivo}} ( \r\n                    {{licencia?.fechaDesde | date: 'dd/MM/yyyy'}} \r\n                    al \r\n                    {{licencia?.fechaHasta | date: 'dd/MM/yyyy'}} \r\n                )\r\n            </mat-chip>\r\n        </div>  \r\n\r\n        <mat-chip-list #chipList aria-label=\"Turnos\">\r\n            <mat-chip *ngFor=\"let turno of turnos\" \r\n                class=\"list-item\"\r\n                [ngClass]=\"'chipColor'+turno.estado\"\r\n                (click)=\"asignarTurno()\">\r\n                {{turno.fechahora | date: 'hh:mm'}}\r\n            </mat-chip>          \r\n        </mat-chip-list>\r\n\r\n        <div class=\"row clearfix\">\r\n            <mat-icon class=\"colorLibre\" aria-hidden=\"false\" aria-label=\"Libre\">label</mat-icon>\r\n            <div class=\"texto\"><span>Libre</span></div>   \r\n            <mat-icon class=\"colorSobreturno\" aria-hidden=\"false\" aria-label=\"Sobreturno\">label</mat-icon>\r\n            <div class=\"texto\"><span>Sobreturno</span></div>   \r\n            <mat-icon class=\"colorAsignado\" aria-hidden=\"false\" aria-label=\"Asignado\">label</mat-icon>\r\n            <div class=\"texto\"><span>Asignado</span></div>   \r\n            <mat-icon class=\"colorConfirmado\" aria-hidden=\"false\" aria-label=\"Confirmado\">label</mat-icon>\r\n            <div class=\"texto\"><span>Confirmado</span></div>   \r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n<div class=\"alertas my-col-100\">\r\n    <!-- mensajes profesional -->\r\n    <div class=\"my-col-50\">\r\n        <div class=\"cuadro-formulario\">\r\n            <h1>Atención! Alertas del profesional</h1>\r\n            <span *ngFor=\"let alerta of profesional?.alertas\">\r\n                {{alerta}}\r\n                <br>\r\n            </span> \r\n        </div>\r\n    </div>    \r\n    <!-- mensajes obra social -->\r\n    <div class=\"my-col-50-r\">\r\n        <div class=\"cuadro-formulario\">\r\n            <h1>Atención! Alertas de la obra social</h1>\r\n            <span *ngFor=\"let alertaOS of obraSocial?.alertas\">\r\n                {{alertaOS}}\r\n                <br>\r\n            </span> \r\n        </div>\r\n    </div>    \r\n</div>\r\n\r\n<!-- -->\r\n<span  style=\"border: 2px solid transparent;\" #footer autofocus></span>");
 
 /***/ }),
 
@@ -26856,7 +26856,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".texto {\r\n  line-height:26px;\r\n}\r\n\r\n.textoSinTurnos {\r\n  line-height:26px;\r\n  background-color: black;\r\n  color: white;\r\n}\r\n\r\n.mat-option {\r\n    margin: 1rem 0;\r\n    overflow: visible;\r\n    line-height: initial;\r\n    word-wrap: break-word;\r\n    white-space: pre-wrap;\r\n    height: unset;\r\n  }\r\n\r\n.datepickerdemoCalendar label {\r\n    font-size: x-small; \r\n}\r\n\r\n.example-chip-list {\r\n  width: 100%;\r\n}\r\n\r\n.colorLibre {\r\n  color: #2fd90c;\r\n}\r\n\r\n.colorSobreturno {\r\n  color: aqua;\r\n}\r\n\r\n.colorAsignado {\r\n  color: yellow;\r\n}\r\n\r\n.colorConfirmado {\r\n  color: red;\r\n}\r\n\r\n.chipColorLibre {\r\n  background-color: #2fd90c;\r\n}\r\n\r\n.chipColorSobreturno {\r\n  background-color: aqua;\r\n}\r\n\r\n.chipColorAsignado {\r\n  background-color: yellow;\r\n}\r\n\r\n.chipColorConfirmado {\r\n  background-color: red;\r\n}\r\n\r\ntable {\r\n  width: 100%;\r\n}\r\n\r\n.filaHorarios {\r\n  height: 35px;\r\n}\r\n\r\ntd.mat-column-star {\r\n  width: 20px;\r\n  padding-right: 8px;\r\n}\r\n\r\nth.mat-column-position, td.mat-column-position {\r\n  padding-left: 8px;\r\n}\r\n\r\n.mat-table-sticky:first-child {\r\n  border-right: 1px solid #e0e0e0;\r\n}\r\n\r\n.mat-table-sticky:last-child {\r\n  border-left: 1px solid #e0e0e0;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9ob21lL2NvbXBvbmVudHMvZm9ybVByaW5jaXBhbC9mb3JtUHJpbmNpcGFsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsdUJBQXVCO0VBQ3ZCLFlBQVk7QUFDZDs7QUFFQTtJQUNJLGNBQWM7SUFDZCxpQkFBaUI7SUFDakIsb0JBQW9CO0lBQ3BCLHFCQUFxQjtJQUNyQixxQkFBcUI7SUFDckIsYUFBYTtFQUNmOztBQUVGO0lBQ0ksa0JBQWtCO0FBQ3RCOztBQUVBO0VBQ0UsV0FBVztBQUNiOztBQUNBO0VBQ0UsY0FBYztBQUNoQjs7QUFDQTtFQUNFLFdBQVc7QUFDYjs7QUFDQTtFQUNFLGFBQWE7QUFDZjs7QUFDQTtFQUNFLFVBQVU7QUFDWjs7QUFDQTtFQUNFLHlCQUF5QjtBQUMzQjs7QUFDQTtFQUNFLHNCQUFzQjtBQUN4Qjs7QUFDQTtFQUNFLHdCQUF3QjtBQUMxQjs7QUFDQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFHQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLFdBQVc7RUFDWCxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSwrQkFBK0I7QUFDakM7O0FBRUE7RUFDRSw4QkFBOEI7QUFDaEMiLCJmaWxlIjoic3JjL2FwcC9tb2R1bGVzL2hvbWUvY29tcG9uZW50cy9mb3JtUHJpbmNpcGFsL2Zvcm1QcmluY2lwYWwuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi50ZXh0byB7XHJcbiAgbGluZS1oZWlnaHQ6MjZweDtcclxufVxyXG5cclxuLnRleHRvU2luVHVybm9zIHtcclxuICBsaW5lLWhlaWdodDoyNnB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuLm1hdC1vcHRpb24ge1xyXG4gICAgbWFyZ2luOiAxcmVtIDA7XHJcbiAgICBvdmVyZmxvdzogdmlzaWJsZTtcclxuICAgIGxpbmUtaGVpZ2h0OiBpbml0aWFsO1xyXG4gICAgd29yZC13cmFwOiBicmVhay13b3JkO1xyXG4gICAgd2hpdGUtc3BhY2U6IHByZS13cmFwO1xyXG4gICAgaGVpZ2h0OiB1bnNldDtcclxuICB9XHJcblxyXG4uZGF0ZXBpY2tlcmRlbW9DYWxlbmRhciBsYWJlbCB7XHJcbiAgICBmb250LXNpemU6IHgtc21hbGw7IFxyXG59IFxyXG5cclxuLmV4YW1wbGUtY2hpcC1saXN0IHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4uY29sb3JMaWJyZSB7XHJcbiAgY29sb3I6ICMyZmQ5MGM7XHJcbn1cclxuLmNvbG9yU29icmV0dXJubyB7XHJcbiAgY29sb3I6IGFxdWE7XHJcbn1cclxuLmNvbG9yQXNpZ25hZG8ge1xyXG4gIGNvbG9yOiB5ZWxsb3c7XHJcbn1cclxuLmNvbG9yQ29uZmlybWFkbyB7XHJcbiAgY29sb3I6IHJlZDtcclxufVxyXG4uY2hpcENvbG9yTGlicmUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyZmQ5MGM7XHJcbn1cclxuLmNoaXBDb2xvclNvYnJldHVybm8ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGFxdWE7XHJcbn1cclxuLmNoaXBDb2xvckFzaWduYWRvIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB5ZWxsb3c7XHJcbn1cclxuLmNoaXBDb2xvckNvbmZpcm1hZG8ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJlZDtcclxufVxyXG5cclxuXHJcbnRhYmxlIHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLmZpbGFIb3JhcmlvcyB7XHJcbiAgaGVpZ2h0OiAzNXB4O1xyXG59XHJcblxyXG50ZC5tYXQtY29sdW1uLXN0YXIge1xyXG4gIHdpZHRoOiAyMHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDhweDtcclxufVxyXG5cclxudGgubWF0LWNvbHVtbi1wb3NpdGlvbiwgdGQubWF0LWNvbHVtbi1wb3NpdGlvbiB7XHJcbiAgcGFkZGluZy1sZWZ0OiA4cHg7XHJcbn1cclxuXHJcbi5tYXQtdGFibGUtc3RpY2t5OmZpcnN0LWNoaWxkIHtcclxuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjZTBlMGUwO1xyXG59XHJcblxyXG4ubWF0LXRhYmxlLXN0aWNreTpsYXN0LWNoaWxkIHtcclxuICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNlMGUwZTA7XHJcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".texto {\r\n  line-height:26px;\r\n}\r\n\r\n.textoSinTurnos {\r\n  line-height:26px;\r\n  background-color: black;\r\n  color: white;\r\n}\r\n\r\n.mat-option {\r\n    margin: 1rem 0;\r\n    overflow: visible;\r\n    line-height: initial;\r\n    word-wrap: break-word;\r\n    white-space: pre-wrap;\r\n    height: unset;\r\n  }\r\n\r\n.datepickerdemoCalendar label {\r\n    font-size: x-small; \r\n}\r\n\r\n.example-chip-list {\r\n  width: 100%;\r\n}\r\n\r\n.chipColorLibre {\r\n  background-color: #2fd90c;\r\n}\r\n\r\n.chipColorSobreturno {\r\n  background-color: aqua;\r\n}\r\n\r\n.chipColorAsignado {\r\n  background-color: yellow;\r\n}\r\n\r\n.chipColorConfirmado {\r\n  background-color: red;\r\n}\r\n\r\n.chipColor1 {\r\n  background-color: #2fd90c;\r\n}\r\n\r\n.chipColor2 {\r\n  background-color: aqua;\r\n}\r\n\r\n.chipColor3 {\r\n  background-color: yellow;\r\n}\r\n\r\n.chipColor4 {\r\n  background-color: red;\r\n}\r\n\r\n.colorLibre {\r\n  color: #2fd90c;\r\n}\r\n\r\n.colorSobreturno {\r\n  color: aqua;\r\n}\r\n\r\n.colorAsignado {\r\n  color: yellow;\r\n}\r\n\r\n.colorConfirmado {\r\n  color: red;\r\n}\r\n\r\ntable {\r\n  width: 100%;\r\n}\r\n\r\n.filaHorarios {\r\n  height: 35px;\r\n}\r\n\r\ntd.mat-column-star {\r\n  width: 20px;\r\n  padding-right: 8px;\r\n}\r\n\r\nth.mat-column-position, td.mat-column-position {\r\n  padding-left: 8px;\r\n}\r\n\r\n.mat-table-sticky:first-child {\r\n  border-right: 1px solid #e0e0e0;\r\n}\r\n\r\n.mat-table-sticky:last-child {\r\n  border-left: 1px solid #e0e0e0;\r\n}\r\n\r\n.labelForm {\r\n  color: rgba(0,0,0,.54);\r\n  font: 400 11px/20px Roboto,\"Helvetica Neue\",sans-serif;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9ob21lL2NvbXBvbmVudHMvZm9ybVByaW5jaXBhbC9mb3JtUHJpbmNpcGFsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsdUJBQXVCO0VBQ3ZCLFlBQVk7QUFDZDs7QUFFQTtJQUNJLGNBQWM7SUFDZCxpQkFBaUI7SUFDakIsb0JBQW9CO0lBQ3BCLHFCQUFxQjtJQUNyQixxQkFBcUI7SUFDckIsYUFBYTtFQUNmOztBQUVGO0lBQ0ksa0JBQWtCO0FBQ3RCOztBQUVBO0VBQ0UsV0FBVztBQUNiOztBQUVBO0VBQ0UseUJBQXlCO0FBQzNCOztBQUNBO0VBQ0Usc0JBQXNCO0FBQ3hCOztBQUNBO0VBQ0Usd0JBQXdCO0FBQzFCOztBQUNBO0VBQ0UscUJBQXFCO0FBQ3ZCOztBQUVBO0VBQ0UseUJBQXlCO0FBQzNCOztBQUVBO0VBQ0Usc0JBQXNCO0FBQ3hCOztBQUVBO0VBQ0Usd0JBQXdCO0FBQzFCOztBQUVBO0VBQ0UscUJBQXFCO0FBQ3ZCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFDQTtFQUNFLFdBQVc7QUFDYjs7QUFDQTtFQUNFLGFBQWE7QUFDZjs7QUFDQTtFQUNFLFVBQVU7QUFDWjs7QUFFQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLFdBQVc7RUFDWCxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSwrQkFBK0I7QUFDakM7O0FBRUE7RUFDRSw4QkFBOEI7QUFDaEM7O0FBRUE7RUFDRSxzQkFBc0I7RUFDdEIsc0RBQXNEO0FBQ3hEIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9ob21lL2NvbXBvbmVudHMvZm9ybVByaW5jaXBhbC9mb3JtUHJpbmNpcGFsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGV4dG8ge1xyXG4gIGxpbmUtaGVpZ2h0OjI2cHg7XHJcbn1cclxuXHJcbi50ZXh0b1NpblR1cm5vcyB7XHJcbiAgbGluZS1oZWlnaHQ6MjZweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbi5tYXQtb3B0aW9uIHtcclxuICAgIG1hcmdpbjogMXJlbSAwO1xyXG4gICAgb3ZlcmZsb3c6IHZpc2libGU7XHJcbiAgICBsaW5lLWhlaWdodDogaW5pdGlhbDtcclxuICAgIHdvcmQtd3JhcDogYnJlYWstd29yZDtcclxuICAgIHdoaXRlLXNwYWNlOiBwcmUtd3JhcDtcclxuICAgIGhlaWdodDogdW5zZXQ7XHJcbiAgfVxyXG5cclxuLmRhdGVwaWNrZXJkZW1vQ2FsZW5kYXIgbGFiZWwge1xyXG4gICAgZm9udC1zaXplOiB4LXNtYWxsOyBcclxufSBcclxuXHJcbi5leGFtcGxlLWNoaXAtbGlzdCB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5jaGlwQ29sb3JMaWJyZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzJmZDkwYztcclxufVxyXG4uY2hpcENvbG9yU29icmV0dXJubyB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYXF1YTtcclxufVxyXG4uY2hpcENvbG9yQXNpZ25hZG8ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHllbGxvdztcclxufVxyXG4uY2hpcENvbG9yQ29uZmlybWFkbyB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkO1xyXG59XHJcblxyXG4uY2hpcENvbG9yMSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzJmZDkwYztcclxufVxyXG5cclxuLmNoaXBDb2xvcjIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGFxdWE7XHJcbn1cclxuXHJcbi5jaGlwQ29sb3IzIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB5ZWxsb3c7XHJcbn1cclxuXHJcbi5jaGlwQ29sb3I0IHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XHJcbn1cclxuXHJcbi5jb2xvckxpYnJlIHtcclxuICBjb2xvcjogIzJmZDkwYztcclxufVxyXG4uY29sb3JTb2JyZXR1cm5vIHtcclxuICBjb2xvcjogYXF1YTtcclxufVxyXG4uY29sb3JBc2lnbmFkbyB7XHJcbiAgY29sb3I6IHllbGxvdztcclxufVxyXG4uY29sb3JDb25maXJtYWRvIHtcclxuICBjb2xvcjogcmVkO1xyXG59XHJcblxyXG50YWJsZSB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5maWxhSG9yYXJpb3Mge1xyXG4gIGhlaWdodDogMzVweDtcclxufVxyXG5cclxudGQubWF0LWNvbHVtbi1zdGFyIHtcclxuICB3aWR0aDogMjBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA4cHg7XHJcbn1cclxuXHJcbnRoLm1hdC1jb2x1bW4tcG9zaXRpb24sIHRkLm1hdC1jb2x1bW4tcG9zaXRpb24ge1xyXG4gIHBhZGRpbmctbGVmdDogOHB4O1xyXG59XHJcblxyXG4ubWF0LXRhYmxlLXN0aWNreTpmaXJzdC1jaGlsZCB7XHJcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2UwZTBlMDtcclxufVxyXG5cclxuLm1hdC10YWJsZS1zdGlja3k6bGFzdC1jaGlsZCB7XHJcbiAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjZTBlMGUwO1xyXG59XHJcblxyXG4ubGFiZWxGb3JtIHtcclxuICBjb2xvcjogcmdiYSgwLDAsMCwuNTQpO1xyXG4gIGZvbnQ6IDQwMCAxMXB4LzIwcHggUm9ib3RvLFwiSGVsdmV0aWNhIE5ldWVcIixzYW5zLXNlcmlmO1xyXG59Il19 */");
 
 /***/ }),
 
@@ -26881,7 +26881,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../core/store/selectors/contexto.selectors */ "./src/app/core/store/selectors/contexto.selectors.ts");
 /* harmony import */ var _core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../core/store/selectors/form.selectors */ "./src/app/core/store/selectors/form.selectors.ts");
 /* harmony import */ var _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../shared/models/datos.models */ "./src/app/shared/models/datos.models.ts");
-/* harmony import */ var _busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../busqProfesional/busqProfesional.component */ "./src/app/modules/home/components/busqProfesional/busqProfesional.component.ts");
+/* harmony import */ var _asignarTurno_asignarTurno_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../asignarTurno/asignarTurno.component */ "./src/app/modules/home/components/asignarTurno/asignarTurno.component.ts");
+/* harmony import */ var _busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../busqProfesional/busqProfesional.component */ "./src/app/modules/home/components/busqProfesional/busqProfesional.component.ts");
+/* harmony import */ var _licencias_licencias_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../licencias/licencias.component */ "./src/app/modules/home/components/licencias/licencias.component.ts");
+
+
 
 
 
@@ -26922,9 +26926,6 @@ var FormPrincipalComponent = /** @class */ (function () {
         this.obrasSociales$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectAllObrasSociales"]);
         this.profesionales$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectAllProfesionales"]);
         this.fechaFiltro$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectFechaTurnos"]);
-        this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectObraSocialSelected"]).subscribe(function (os) {
-            _this.obraSocialFC.setValue(os);
-        });
         store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectFechaTurnos"]).subscribe(function (fechaFiltro) {
             _this.fechaFiltro = fechaFiltro;
         });
@@ -26942,6 +26943,7 @@ var FormPrincipalComponent = /** @class */ (function () {
             _this.router.navigate(['/home']);
         });
         this.store.select(_core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_8__["getToken"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["filter"])(function (token) { return (token != undefined || token != null); })).subscribe(function () {
+            _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getEspecialidades"]());
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getObraSociales"]());
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getEspecialidadesProfesionales"]());
             _this.filteredObrasSociales$ = _this.obraSocialFC.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (value) { return typeof value === 'string' ? value : value.nombre; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["switchMap"])(function (x) { return _this.filterOs(x); }));
@@ -26961,43 +26963,90 @@ var FormPrincipalComponent = /** @class */ (function () {
     };
     FormPrincipalComponent.prototype.filterProf = function (value) {
         var filterValue = value.toLowerCase();
+        if (value != "" && !isNaN(Number(value))) {
+            return this.profesionales$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (e) {
+                return e.filter(function (el) {
+                    var _a, _b;
+                    return ((_a = el.nombreApellido) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(filterValue)) !== -1 ||
+                        ((_b = el.codigo) === null || _b === void 0 ? void 0 : _b.toString().indexOf(filterValue)) === 0;
+                })
+                    .sort(function (a, b) {
+                    if (a.codigo == 0)
+                        return -1;
+                    if (b.codigo == 0)
+                        return 1;
+                    if (a.codigo > b.codigo)
+                        return 1;
+                    if (a.codigo < b.codigo)
+                        return -1;
+                    return 0;
+                });
+            }));
+        }
         return this.profesionales$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (e) {
             return e.filter(function (el) {
                 var _a, _b;
                 return ((_a = el.nombreApellido) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(filterValue)) !== -1 ||
-                    ((_b = el.codigo) === null || _b === void 0 ? void 0 : _b.toString().indexOf(filterValue)) !== -1;
+                    ((_b = el.codigo) === null || _b === void 0 ? void 0 : _b.toString().indexOf(filterValue)) === 0;
             });
         }));
     };
     FormPrincipalComponent.prototype.filterOs = function (value) {
         var filterValue = value.toLowerCase();
+        if (value != "" && !isNaN(Number(value))) {
+            return this.obrasSociales$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (os) {
+                return os.filter(function (el) {
+                    var _a, _b;
+                    return ((_a = el.nombre) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(filterValue)) !== -1 ||
+                        ((_b = el.codigo) === null || _b === void 0 ? void 0 : _b.toString().indexOf(filterValue)) === 0;
+                })
+                    .sort(function (a, b) {
+                    if (a.codigo == 0)
+                        return -1;
+                    if (b.codigo == 0)
+                        return 1;
+                    if (a.codigo > b.codigo)
+                        return 1;
+                    if (a.codigo < b.codigo)
+                        return -1;
+                    return 0;
+                });
+            }));
+        }
         return this.obrasSociales$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (os) {
             return os.filter(function (el) {
                 var _a, _b;
                 return ((_a = el.nombre) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(filterValue)) !== -1 ||
-                    ((_b = el.codigo) === null || _b === void 0 ? void 0 : _b.toString().indexOf(filterValue)) !== -1;
+                    ((_b = el.codigo) === null || _b === void 0 ? void 0 : _b.toString().indexOf(filterValue)) === 0;
             });
         }));
     };
     FormPrincipalComponent.prototype.cambioObraSocial = function (value) {
         var _this = this;
-        this.obraSocial = value;
-        this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["setObraSocialSelected"]({ obraSocialSelected: value }));
-        if (value != undefined && value.codigo != undefined && (value === null || value === void 0 ? void 0 : value.alertas) === undefined) {
-            this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectObraSocialSelected"]).subscribe(function (os) {
-                _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getAlertasObraSocial"]({ obraSocial: os }));
-            }).unsubscribe();
+        if (value != undefined) {
+            this.obraSocial = value;
+            this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["setObraSocialSelected"]({ obraSocialSelected: value }));
         }
+        setTimeout(function () {
+            if (value != undefined && value.codigo != undefined && value.alertas == undefined) {
+                _this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectObraSocialSelected"]).subscribe(function (os) {
+                    console.log("alerta");
+                    _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getAlertasObraSocial"]({ obraSocial: os }));
+                    console.log("alerta set " + os.alertas);
+                    _this.obraSocialFC.setValue(os);
+                }).unsubscribe();
+            }
+        }, 500);
     };
     FormPrincipalComponent.prototype.cambioProfesional = function (value) {
-        var _a, _b;
+        var _a;
         if (value != undefined) {
             this.profesional = value;
             this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["setEspecialidadProfesionalSelected"]({ especialidadProfesionalSelected: value }));
-        }
-        console.log('llega con valor ' + ((_a = this.profesional) === null || _a === void 0 ? void 0 : _a.codigo));
-        if (((_b = this.profesional) === null || _b === void 0 ? void 0 : _b.codigo) === 0) {
-            this.busqProfAvanzada(); // popup
+            if (((_a = this.profesional) === null || _a === void 0 ? void 0 : _a.codigo) === 0) {
+                console.log("codigo prof " + this.profesional.codigo);
+                this.busqProfAvanzada(); // popup
+            }
         }
     };
     // evento enter 
@@ -27007,10 +27056,9 @@ var FormPrincipalComponent = /** @class */ (function () {
         }
     };
     FormPrincipalComponent.prototype.onEnterE = function (evt, field) {
-        var _this = this;
         setTimeout(function () {
             if (field == 'nombreField') {
-                console.log(_this.profesionalFC.value);
+                //console.log(this.profesionalFC.value);
             }
         });
     };
@@ -27025,11 +27073,6 @@ var FormPrincipalComponent = /** @class */ (function () {
     FormPrincipalComponent.prototype.clearOS = function () {
         this.obraSocialFC.setValue('');
     };
-    /*
-    clearEspecialidad() {
-      this.especialidadFC.setValue('');
-    }
-    */
     FormPrincipalComponent.prototype.clearProfesional = function () {
         this.profesionalFC.setValue('');
     };
@@ -27049,10 +27092,35 @@ var FormPrincipalComponent = /** @class */ (function () {
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getTurnos"]({ filtrosTurnos: filtrosTurnos }));
         }).unsubscribe();
     };
+    // popup licencias
+    FormPrincipalComponent.prototype.buscarLicencias = function () {
+        var _this = this;
+        this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selecBusquedatLicencias"]).subscribe(function (filtrosLicencias) {
+            _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getLicencias"]({ filtrosLicencias: filtrosLicencias }));
+            var dialogRef = _this.dialog.open(_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_13__["LicenciasDialogComponent"], {
+                width: '50%',
+                data: {
+                    profesional: new _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_10__["EspecialidadProfesional"]()
+                }
+            });
+        }).unsubscribe();
+    };
+    // popup turnos
+    FormPrincipalComponent.prototype.asignarTurno = function () {
+        var dialogRef = this.dialog.open(_asignarTurno_asignarTurno_component__WEBPACK_IMPORTED_MODULE_11__["AsignarTurnoDialogComponent"], {
+            width: '50%',
+            data: {
+                profesional: new _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_10__["EspecialidadProfesional"](),
+                turno: undefined,
+                obraSocial: undefined
+            }
+        });
+    };
     // popup busq por os y especialidad
     FormPrincipalComponent.prototype.busqProfAvanzada = function () {
         var _this = this;
-        var dialogRef = this.dialog.open(_busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_11__["BusqProfesionalDialogComponent"], {
+        console.log("busqProfAvanzada");
+        var dialogRef = this.dialog.open(_busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_12__["BusqProfesionalDialogComponent"], {
             width: '50%',
             data: {
                 tipoBusqueda: 1,
@@ -27063,6 +27131,10 @@ var FormPrincipalComponent = /** @class */ (function () {
             setTimeout(function () {
                 _this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectProfesionalSelected"]).subscribe(function (pe) {
                     _this.profesionalFC.setValue(pe);
+                }).unsubscribe();
+                _this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectObraSocialSelected"]).subscribe(function (os) {
+                    console.log("afterClosed");
+                    _this.obraSocialFC.setValue(os);
                 }).unsubscribe();
             });
         });
@@ -27255,15 +27327,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angular_calendar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular-calendar */ "./node_modules/angular-calendar/__ivy_ngcc__/fesm5/angular-calendar.js");
 /* harmony import */ var angular_calendar_date_adapters_date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular-calendar/date-adapters/date-fns */ "./node_modules/angular-calendar/date-adapters/date-fns/index.js");
 /* harmony import */ var angular_calendar_date_adapters_date_fns__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(angular_calendar_date_adapters_date_fns__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _components_busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/busqProfesional/busqProfesional.component */ "./src/app/modules/home/components/busqProfesional/busqProfesional.component.ts");
-/* harmony import */ var _components_formPrincipal_formPrincipal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/formPrincipal/formPrincipal.component */ "./src/app/modules/home/components/formPrincipal/formPrincipal.component.ts");
-/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/modules/home/components/login/login.component.ts");
-/* harmony import */ var _home_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./home-routing.module */ "./src/app/modules/home/home-routing.module.ts");
-/* harmony import */ var _material_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./material.module */ "./src/app/modules/home/material.module.ts");
-/* harmony import */ var _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/dashboard/dashboard.component */ "./src/app/modules/home/pages/dashboard/dashboard.component.ts");
+/* harmony import */ var _components_asignarTurno_asignarTurno_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/asignarTurno/asignarTurno.component */ "./src/app/modules/home/components/asignarTurno/asignarTurno.component.ts");
+/* harmony import */ var _components_busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/busqProfesional/busqProfesional.component */ "./src/app/modules/home/components/busqProfesional/busqProfesional.component.ts");
+/* harmony import */ var _components_formPrincipal_formPrincipal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/formPrincipal/formPrincipal.component */ "./src/app/modules/home/components/formPrincipal/formPrincipal.component.ts");
+/* harmony import */ var _components_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/licencias/licencias.component */ "./src/app/modules/home/components/licencias/licencias.component.ts");
+/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/modules/home/components/login/login.component.ts");
+/* harmony import */ var _home_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./home-routing.module */ "./src/app/modules/home/home-routing.module.ts");
+/* harmony import */ var _material_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./material.module */ "./src/app/modules/home/material.module.ts");
+/* harmony import */ var _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/dashboard/dashboard.component */ "./src/app/modules/home/pages/dashboard/dashboard.component.ts");
 
 
  // to register spanish
+
+
 
 
 
@@ -27280,18 +27356,20 @@ var HomeModule = /** @class */ (function () {
     HomeModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
             declarations: [
-                _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"],
-                _components_login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
-                _components_formPrincipal_formPrincipal_component__WEBPACK_IMPORTED_MODULE_7__["FormPrincipalComponent"]
+                _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_13__["DashboardComponent"],
+                _components_login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
+                _components_formPrincipal_formPrincipal_component__WEBPACK_IMPORTED_MODULE_8__["FormPrincipalComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _home_routing_module__WEBPACK_IMPORTED_MODULE_9__["HomeRoutingModule"],
-                _material_module__WEBPACK_IMPORTED_MODULE_10__["MaterialModule"],
+                _home_routing_module__WEBPACK_IMPORTED_MODULE_11__["HomeRoutingModule"],
+                _material_module__WEBPACK_IMPORTED_MODULE_12__["MaterialModule"],
                 angular_calendar__WEBPACK_IMPORTED_MODULE_4__["CalendarModule"].forRoot({ provide: angular_calendar__WEBPACK_IMPORTED_MODULE_4__["DateAdapter"], useFactory: angular_calendar_date_adapters_date_fns__WEBPACK_IMPORTED_MODULE_5__["adapterFactory"] }),
             ],
             entryComponents: [
-                _components_busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_6__["BusqProfesionalDialogComponent"]
+                _components_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_9__["LicenciasDialogComponent"],
+                _components_busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_7__["BusqProfesionalDialogComponent"],
+                _components_asignarTurno_asignarTurno_component__WEBPACK_IMPORTED_MODULE_6__["AsignarTurnoDialogComponent"]
             ]
         })
     ], HomeModule);
