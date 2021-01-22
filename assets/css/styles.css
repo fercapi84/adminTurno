@@ -148,6 +148,24 @@ body {
     float: right;
 }
 
+.my-col-75 {
+    width: 75%;
+    padding: 0.5vw;
+    float: left;
+}
+
+.my-col-80 {
+    width: 80%;
+    padding: 0.5vw;
+    float: left;
+}
+
+.my-col-80-r {
+    width: 80%;
+    padding: 0.5vw;
+    float: right;
+}
+
 @media(max-width: 1000px) {
     .my-col-10 {
         width: 40%;
@@ -170,6 +188,9 @@ body {
     .my-col-60 {
         width: 100%;
     }
+    .my-col-80 {
+        width: 100%;
+    }
     .my-col-100 {
         width: 100%;
     }
@@ -190,7 +211,10 @@ body {
     }    
     .my-col-60-r {
         width: 100%;
-    }    
+    }   
+    .my-col-75 {
+        width: 100%;
+    }  
 }
 
 @media(max-width: 800px) {
@@ -208,10 +232,13 @@ body {
 .row {
     margin: 2% !important;
 }
-
 .button {
     background-color: var(--azul);
     color: white;
+}
+
+.titulo {
+    font-size: 18px !important ;
 }
 
 .button-default {
