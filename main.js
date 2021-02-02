@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Asignar turno</h1>\r\n\r\n<div mat-dialog-content>\r\n    <div class=\"row clearfix\">\r\n\r\n            <mat-label>Obra Social</mat-label>\r\n\r\n\r\n    </div>        \r\n</div>\r\n<div mat-dialog-actions>\r\n  <button mat-button (click)=\"onCancelarClick()\">Cancelar</button>\r\n  <!--button mat-button \r\n    [mat-dialog-close]=\"data.profesional\" cdkFocusInitial>Ok</button-->\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Asignar turno</h1>\r\n\r\n<div mat-dialog-content>\r\n  <div class=\"my-col-50 cuadro-formulario\" >\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Día: </mat-label>\r\n      <span>{{ fechahora | date: 'dd/MM/yyyy HH:mm'}}</span>\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Profesional: </mat-label>\r\n      <span>{{ profesionalNombre }} </span>\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Obra Social: </mat-label>\r\n      <span>{{ obraSocialNombre }}</span>\r\n    </div>    \r\n  </div>\r\n  <div class=\"my-col-50-r cuadro-formulario\" >\r\n    <table mat-table [dataSource]=\"turnosAnteriores\" >\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n\r\n      <ng-container matColumnDef=\"confirmado\">\r\n          <th mat-header-cell *matHeaderCellDef style=\"width: 10%;\" mat-sort-header>\r\n              Conf.\r\n          </th>\r\n          <td mat-cell *matCellDef=\"let row\" style=\"width: 10%;\" >\r\n              {{row.confirmado}}\r\n          </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"fecha\">\r\n          <th mat-header-cell *matHeaderCellDef style=\"width: 20%;\" mat-sort-header>\r\n              Fecha Turno\r\n          </th>\r\n          <td mat-cell *matCellDef=\"let row\" style=\"width: 20%;\" >\r\n            {{row.fechaHora | date:'dd/MM/yyyy HH:mm' }}  \r\n          </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"os\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width: 30%;\" mat-sort-header>\r\n            Obra Social\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\" style=\"width: 30%;\" >\r\n            {{row.obraSocial.nombre}}\r\n        </td>\r\n      </ng-container>\r\n \r\n      <ng-container matColumnDef=\"profesional\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width: 30%;\" mat-sort-header>\r\n            Profesional\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\" style=\"width: 30%;\" >\r\n            {{row.especialidadProfesional.nombreApellido}}\r\n        </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"acciones\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width: 10%;\" mat-sort-header>\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\" style=\"width: 10%;\" >\r\n          <span _ngcontent-yil-c19=\"\" class=\"material-icons icon-image-preview\">cancel</span>\r\n        </td>\r\n      </ng-container>      \r\n    </table>\r\n  </div>\r\n  <div class=\"my-col-50 cuadro-formulario\" >\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Nro. HC</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>DNI</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Nombre</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Dirección</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Localidad</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Teléfono 1</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Celular</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Teléfono 2</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Teléfono fijo</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Email</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Comentario</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div mat-dialog-actions>\r\n  <button mat-button (click)=\"onCancelarClick()\">Cancelar</button>\r\n  <!--button mat-button \r\n    [mat-dialog-close]=\"data.profesional\" cdkFocusInitial>Ok</button-->\r\n</div>\r\n");
 
 /***/ }),
 
@@ -720,7 +720,7 @@ var TokenInterceptor = /** @class */ (function () {
 /*!*************************************!*\
   !*** ./src/app/core/mocks/mocks.ts ***!
   \*************************************/
-/*! exports provided: planMock1, planMock2, planMock3, planMock4, obraSocialMock1, obraSocialMock2, obrasSocialesMocks, centroAtencionMock, centroAtencionesMocks, tokenMock, especialidadesMocks, horariosProf, profesionalE0, profesionalE1, profesionalE2, profesionalEBusq1, profesionalEBusq2, especialidadProfMock, especialidadProfFiltradasMock, licencia1, licencia2, licenciasMock, turno1, turno2, turno3, turno4, turnoRespuesta, turnoRespuestaLic */
+/*! exports provided: planMock1, planMock2, planMock3, planMock4, obraSocialMock1, obraSocialMock2, obrasSocialesMocks, centroAtencionMock, centroAtencionesMocks, tokenMock, especialidadesMocks, horariosProf, profesionalE0, profesionalE1, profesionalE2, profesionalEBusq1, profesionalEBusq2, especialidadProfMock, especialidadProfFiltradasMock, licencia1, licencia2, licenciasMock, turno1, turno2, turno3, turno4, turno5, turno6, turno7, turno8, turno51, turno61, turno71, turno81, turno52, turno62, turno72, turno82, turnoRespuesta, turnoRespuestaLic */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -751,6 +751,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno2", function() { return turno2; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno3", function() { return turno3; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno4", function() { return turno4; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno5", function() { return turno5; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno6", function() { return turno6; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno7", function() { return turno7; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno8", function() { return turno8; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno51", function() { return turno51; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno61", function() { return turno61; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno71", function() { return turno71; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno81", function() { return turno81; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno52", function() { return turno52; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno62", function() { return turno62; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno72", function() { return turno72; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno82", function() { return turno82; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turnoRespuesta", function() { return turnoRespuesta; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turnoRespuestaLic", function() { return turnoRespuestaLic; });
 var planMock1 = {
@@ -904,27 +916,90 @@ var licenciasMock = [
 ];
 var turno1 = {
     codigo: 1,
-    fechahora: new Date('2020/12/18'),
-    estado: 1,
+    fechahora: new Date('2020/12/18 9:00'),
+    estado: 4,
 };
 var turno2 = {
     codigo: 2,
-    fechahora: new Date('2020/12/18'),
-    estado: 2,
+    fechahora: new Date('2020/12/18 9:15'),
+    estado: 4,
 };
 var turno3 = {
     codigo: 3,
-    fechahora: new Date('2020/12/18'),
-    estado: 3,
+    fechahora: new Date('2020/12/18 9:30'),
+    estado: 4,
 };
 var turno4 = {
     codigo: 4,
-    fechahora: new Date('2020/12/18'),
+    fechahora: new Date('2020/12/18 9:45'),
     estado: 4,
+};
+var turno5 = {
+    codigo: 2,
+    fechahora: new Date('2020/12/18 10:00'),
+    estado: 4,
+};
+var turno6 = {
+    codigo: 3,
+    fechahora: new Date('2020/12/18 10:15'),
+    estado: 1,
+};
+var turno7 = {
+    codigo: 4,
+    fechahora: new Date('2020/12/18 10:30'),
+    estado: 4,
+};
+var turno8 = {
+    codigo: 4,
+    fechahora: new Date('2020/12/18 10:45'),
+    estado: 4,
+};
+var turno51 = {
+    codigo: 2,
+    fechahora: new Date('2020/12/18 11:00'),
+    estado: 3,
+};
+var turno61 = {
+    codigo: 3,
+    fechahora: new Date('2020/12/18 11:15'),
+    estado: 1,
+};
+var turno71 = {
+    codigo: 4,
+    fechahora: new Date('2020/12/18 11:30'),
+    estado: 1,
+};
+var turno81 = {
+    codigo: 4,
+    fechahora: new Date('2020/12/18 11:45'),
+    estado: 1,
+};
+var turno52 = {
+    codigo: 2,
+    fechahora: new Date('2020/12/18 12:00'),
+    estado: 1,
+};
+var turno62 = {
+    codigo: 3,
+    fechahora: new Date('2020/12/18 12:15'),
+    estado: 1,
+};
+var turno72 = {
+    codigo: 4,
+    fechahora: new Date('2020/12/18 12:30'),
+    estado: 2,
+};
+var turno82 = {
+    codigo: 4,
+    fechahora: new Date('2020/12/18 12:45'),
+    estado: 2,
 };
 var turnoRespuesta = {
     respuesta: undefined,
-    turno: [turno1, turno2, turno3, turno4],
+    turno: [turno1, turno2, turno3, turno4,
+        turno5, turno6, turno7, turno8,
+        turno51, turno61, turno71, turno81,
+        turno52, turno62, turno72, turno82],
     licencia: undefined
 };
 var turnoRespuestaLic = {
@@ -2138,6 +2213,19 @@ function throwErrorIfBadCode(res) {
 
 /***/ }),
 
+/***/ "./src/app/modules/home/components/asignarTurno/asignarTurno.component.css":
+/*!*********************************************************************************!*\
+  !*** ./src/app/modules/home/components/asignarTurno/asignarTurno.component.css ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".texto {\r\n  line-height:26px;\r\n}\r\n\r\n.mat-option {\r\n    margin: 1rem 0;\r\n    overflow: visible;\r\n    line-height: initial;\r\n    word-wrap: break-word;\r\n    white-space: pre-wrap;\r\n    height: unset;\r\n  }\r\n\r\ntable {\r\n  width: 100%;\r\n}\r\n\r\n.filaHorarios {\r\n  height: 35px;\r\n}\r\n\r\ntd.mat-column-star {\r\n  width: 20px;\r\n  padding-right: 8px;\r\n}\r\n\r\nth.mat-column-position, td.mat-column-position {\r\n  padding-left: 8px;\r\n}\r\n\r\n.mat-table-sticky:first-child {\r\n  border-right: 1px solid #e0e0e0;\r\n}\r\n\r\n.mat-table-sticky:last-child {\r\n  border-left: 1px solid #e0e0e0;\r\n}\r\n\r\n.labelForm {\r\n  color: rgba(0,0,0,.54);\r\n  font: 400 11px/20px Roboto,\"Helvetica Neue\",sans-serif;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9ob21lL2NvbXBvbmVudHMvYXNpZ25hclR1cm5vL2FzaWduYXJUdXJuby5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0lBQ0ksY0FBYztJQUNkLGlCQUFpQjtJQUNqQixvQkFBb0I7SUFDcEIscUJBQXFCO0lBQ3JCLHFCQUFxQjtJQUNyQixhQUFhO0VBQ2Y7O0FBRUY7RUFDRSxXQUFXO0FBQ2I7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsK0JBQStCO0FBQ2pDOztBQUVBO0VBQ0UsOEJBQThCO0FBQ2hDOztBQUVBO0VBQ0Usc0JBQXNCO0VBQ3RCLHNEQUFzRDtBQUN4RCIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvaG9tZS9jb21wb25lbnRzL2FzaWduYXJUdXJuby9hc2lnbmFyVHVybm8uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi50ZXh0byB7XHJcbiAgbGluZS1oZWlnaHQ6MjZweDtcclxufVxyXG5cclxuLm1hdC1vcHRpb24ge1xyXG4gICAgbWFyZ2luOiAxcmVtIDA7XHJcbiAgICBvdmVyZmxvdzogdmlzaWJsZTtcclxuICAgIGxpbmUtaGVpZ2h0OiBpbml0aWFsO1xyXG4gICAgd29yZC13cmFwOiBicmVhay13b3JkO1xyXG4gICAgd2hpdGUtc3BhY2U6IHByZS13cmFwO1xyXG4gICAgaGVpZ2h0OiB1bnNldDtcclxuICB9XHJcblxyXG50YWJsZSB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5maWxhSG9yYXJpb3Mge1xyXG4gIGhlaWdodDogMzVweDtcclxufVxyXG5cclxudGQubWF0LWNvbHVtbi1zdGFyIHtcclxuICB3aWR0aDogMjBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA4cHg7XHJcbn1cclxuXHJcbnRoLm1hdC1jb2x1bW4tcG9zaXRpb24sIHRkLm1hdC1jb2x1bW4tcG9zaXRpb24ge1xyXG4gIHBhZGRpbmctbGVmdDogOHB4O1xyXG59XHJcblxyXG4ubWF0LXRhYmxlLXN0aWNreTpmaXJzdC1jaGlsZCB7XHJcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2UwZTBlMDtcclxufVxyXG5cclxuLm1hdC10YWJsZS1zdGlja3k6bGFzdC1jaGlsZCB7XHJcbiAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjZTBlMGUwO1xyXG59XHJcblxyXG4ubGFiZWxGb3JtIHtcclxuICBjb2xvcjogcmdiYSgwLDAsMCwuNTQpO1xyXG4gIGZvbnQ6IDQwMCAxMXB4LzIwcHggUm9ib3RvLFwiSGVsdmV0aWNhIE5ldWVcIixzYW5zLXNlcmlmO1xyXG59Il19 */");
+
+/***/ }),
+
 /***/ "./src/app/modules/home/components/asignarTurno/asignarTurno.component.ts":
 /*!********************************************************************************!*\
   !*** ./src/app/modules/home/components/asignarTurno/asignarTurno.component.ts ***!
@@ -2152,8 +2240,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/__ivy_ngcc__/esm5/material.es5.js");
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/__ivy_ngcc__/fesm5/store.js");
-/* harmony import */ var _core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../core/store/selectors/form.selectors */ "./src/app/core/store/selectors/form.selectors.ts");
-
 
 
 
@@ -2163,12 +2249,36 @@ var AsignarTurnoDialogComponent = /** @class */ (function () {
         this.store = store;
         this.dialogRef = dialogRef;
         this.data = data;
+        this.displayedColumns = ['confirmado', 'fecha', 'os', 'profesional', 'acciones'];
         console.log("constructor popup");
-        this.obraSocial$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_4__["selectObraSocialSelected"]);
-        //this.turno$ = store.select(FormSelectors.selectTurnoSelected);
     }
     AsignarTurnoDialogComponent.prototype.ngOnInit = function () {
         console.log("onInit popup");
+        this.fechahora = this.data.turno.fechahora;
+        this.obraSocialNombre = this.data.obraSocial.nombre;
+        this.profesionalNombre = this.data.profesional.nombreApellido;
+        this.turnosAnteriores = [
+            {
+                fechaHora: new Date('2020/12/18 12:45'),
+                obraSocial: {
+                    codigo: 12345,
+                    nombre: 'ACA Salud',
+                    plan: [],
+                    alertas: []
+                },
+                especialidadProfesional: {
+                    codigo: 11020,
+                    nombreApellido: 'ABDALA EMELIA',
+                    especialidad: null,
+                    horario: null,
+                    alertas: null,
+                    turnoAM: null,
+                    turnoPM: null,
+                    turnoParticular: null
+                },
+                confirmado: true
+            }
+        ];
     };
     AsignarTurnoDialogComponent.prototype.onCancelarClick = function () {
         this.dialogRef.close();
@@ -2182,6 +2292,7 @@ var AsignarTurnoDialogComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-asignarTurno-dialog',
             template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./asignarTurno.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/home/components/asignarTurno/asignarTurno.component.html")).default,
+            styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./asignarTurno.component.css */ "./src/app/modules/home/components/asignarTurno/asignarTurno.component.css")).default]
         }),
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"],
