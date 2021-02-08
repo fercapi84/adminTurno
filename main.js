@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Asignar turno</h1>\r\n\r\n<div mat-dialog-content>\r\n  <div class=\"my-col-50 cuadro-formulario\" >\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Día: </mat-label>\r\n      <span>{{ fechahora | date: 'dd/MM/yyyy HH:mm'}}</span>\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Profesional: </mat-label>\r\n      <span>{{ profesionalNombre }} </span>\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Obra Social: </mat-label>\r\n      <span>{{ obraSocialNombre }}</span>\r\n    </div>    \r\n  </div>\r\n  <div class=\"my-col-50-r cuadro-formulario\" >\r\n    <table mat-table [dataSource]=\"turnosAnteriores\" >\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n\r\n      <ng-container matColumnDef=\"confirmado\">\r\n          <th mat-header-cell *matHeaderCellDef style=\"width: 10%;\" mat-sort-header>\r\n              Conf.\r\n          </th>\r\n          <td mat-cell *matCellDef=\"let row\" style=\"width: 10%;\" >\r\n              {{row.confirmado}}\r\n          </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"fecha\">\r\n          <th mat-header-cell *matHeaderCellDef style=\"width: 20%;\" mat-sort-header>\r\n              Fecha Turno\r\n          </th>\r\n          <td mat-cell *matCellDef=\"let row\" style=\"width: 20%;\" >\r\n            {{row.fechaHora | date:'dd/MM/yyyy HH:mm' }}  \r\n          </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"os\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width: 30%;\" mat-sort-header>\r\n            Obra Social\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\" style=\"width: 30%;\" >\r\n            {{row.obraSocial.nombre}}\r\n        </td>\r\n      </ng-container>\r\n \r\n      <ng-container matColumnDef=\"profesional\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width: 30%;\" mat-sort-header>\r\n            Profesional\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\" style=\"width: 30%;\" >\r\n            {{row.especialidadProfesional.nombreApellido}}\r\n        </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"acciones\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width: 10%;\" mat-sort-header>\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\" style=\"width: 10%;\" >\r\n          <span _ngcontent-yil-c19=\"\" class=\"material-icons icon-image-preview\">cancel</span>\r\n        </td>\r\n      </ng-container>      \r\n    </table>\r\n  </div>\r\n  <div class=\"my-col-50 cuadro-formulario\" >\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Nro. HC</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>DNI</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Nombre</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Dirección</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Localidad</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Teléfono 1</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Celular</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Teléfono 2</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Teléfono fijo</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Email</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Comentario</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div mat-dialog-actions>\r\n  <button mat-button (click)=\"onCancelarClick()\">Cancelar</button>\r\n  <!--button mat-button \r\n    [mat-dialog-close]=\"data.profesional\" cdkFocusInitial>Ok</button-->\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Asignar turno</h1>\r\n\r\n<div mat-dialog-content>\r\n  <div class=\"my-col-50 cuadro-formulario\" >\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Día: </mat-label>\r\n      <span>{{ fechahora | date: 'dd/MM/yyyy HH:mm'}}</span>\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Profesional: </mat-label>\r\n      <span>{{ profesionalNombre }} </span>\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Obra Social: </mat-label>\r\n      <span>{{ obraSocialNombre }}</span>\r\n    </div>    \r\n  </div>\r\n  <div class=\"my-col-50-r cuadro-formulario\" >\r\n    <table mat-table [dataSource]=\"turnosAnteriores\" >\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n\r\n      <ng-container matColumnDef=\"confirmado\">\r\n          <th mat-header-cell *matHeaderCellDef style=\"width: 10%;\" mat-sort-header>\r\n              Conf.\r\n          </th>\r\n          <td mat-cell *matCellDef=\"let row\" style=\"width: 10%;\" >\r\n              {{row.confirmado}}\r\n          </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"fecha\">\r\n          <th mat-header-cell *matHeaderCellDef style=\"width: 20%;\" mat-sort-header>\r\n              Fecha Turno\r\n          </th>\r\n          <td mat-cell *matCellDef=\"let row\" style=\"width: 20%;\" >\r\n            {{row.fechaHora | date:'dd/MM/yyyy HH:mm' }}  \r\n          </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"os\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width: 30%;\" mat-sort-header>\r\n            Obra Social\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\" style=\"width: 30%;\" >\r\n            {{row.obraSocial.nombre}}\r\n        </td>\r\n      </ng-container>\r\n \r\n      <ng-container matColumnDef=\"profesional\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width: 30%;\" mat-sort-header>\r\n            Profesional\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\" style=\"width: 30%;\" >\r\n            {{row.especialidadProfesional.nombreApellido}}\r\n        </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"acciones\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width: 10%;\" mat-sort-header>\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\" style=\"width: 10%;\" >\r\n          <span _ngcontent-yil-c19=\"\" class=\"material-icons icon-image-preview\">cancel</span>\r\n        </td>\r\n      </ng-container>      \r\n    </table>\r\n  </div>\r\n  <div class=\"my-col-50 cuadro-formulario\" >\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Nro. HC</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Edad</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>DNI</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Nombre</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Dirección</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Localidad</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Teléfono 1</mat-label>\r\n      <input type=\"text\">\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Celular</mat-label>\r\n      <input type=\"text\">\r\n      <input type=\"text\">\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Teléfono 2</mat-label>\r\n      <input type=\"text\">\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Teléfono fijo</mat-label>\r\n      <input type=\"text\">\r\n      <input type=\"text\">\r\n      <input type=\"text\">\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Email</mat-label>\r\n      <input type=\"text\">\r\n      <mat-label>Sin email</mat-label>\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <mat-label>Comentario</mat-label>\r\n      <input type=\"text\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div mat-dialog-actions>\r\n  <button mat-button (click)=\"onCancelarClick()\">Cancelar</button>\r\n  <!--button mat-button \r\n    [mat-dialog-close]=\"data.profesional\" cdkFocusInitial>Ok</button-->\r\n</div>\r\n");
 
 /***/ }),
 
@@ -720,7 +720,7 @@ var TokenInterceptor = /** @class */ (function () {
 /*!*************************************!*\
   !*** ./src/app/core/mocks/mocks.ts ***!
   \*************************************/
-/*! exports provided: planMock1, planMock2, planMock3, planMock4, obraSocialMock1, obraSocialMock2, obrasSocialesMocks, centroAtencionMock, centroAtencionesMocks, tokenMock, especialidadesMocks, horariosProf, profesionalE0, profesionalE1, profesionalE2, profesionalEBusq1, profesionalEBusq2, especialidadProfMock, especialidadProfFiltradasMock, licencia1, licencia2, licenciasMock, turno1, turno2, turno3, turno4, turno5, turno6, turno7, turno8, turno51, turno61, turno71, turno81, turno52, turno62, turno72, turno82, turnoRespuesta, turnoRespuestaLic */
+/*! exports provided: planMock1, planMock2, planMock3, planMock4, obraSocialMock1, obraSocialMock2, obrasSocialesMocks, centroAtencionMock, centroAtencionesMocks, tokenMock, especialidadesMocks, horariosProf, profesionalE0, profesionalE1, profesionalE2, profesionalEBusq1, profesionalEBusq2, especialidadProfMock, especialidadProfFiltradasMock, licencia1, licencia2, licenciasMock, turno1, turno2, turno3, turno4, turno5, turno6, turno7, turno8, turno51, turno61, turno71, turno81, turno52, turno62, turno72, turno82, turnoRespuesta, turnoRespuestaLic, tel1, tel2, paciente1, paciente2, paciente3, pacientesList */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -765,6 +765,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turno82", function() { return turno82; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turnoRespuesta", function() { return turnoRespuesta; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "turnoRespuestaLic", function() { return turnoRespuestaLic; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tel1", function() { return tel1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tel2", function() { return tel2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "paciente1", function() { return paciente1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "paciente2", function() { return paciente2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "paciente3", function() { return paciente3; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pacientesList", function() { return pacientesList; });
 var planMock1 = {
     codigo: 1,
     nombre: '210 - Básico'
@@ -1011,6 +1017,50 @@ var turnoRespuestaLic = {
         motivo: 'prueba licencia'
     }
 };
+var tel1 = {
+    area: 341,
+    numero: 3999888,
+    referencia: 'paciente'
+};
+var tel2 = {
+    area: 341,
+    numero: 3999888,
+    referencia: 'pareja'
+};
+var paciente1 = {
+    codigo: 334025,
+    hc: 269862,
+    dni: 50123123,
+    nombreApellido: 'Brumatti José',
+    direccion: 'mitre 123',
+    codigoPostal: 2000,
+    localidad: 'Rosario',
+    telefono: [tel1, tel2]
+};
+var paciente2 = {
+    codigo: 334025,
+    hc: 111222,
+    dni: 50444555,
+    nombreApellido: 'Brumatti Juan',
+    direccion: 'san martin 123',
+    codigoPostal: 2000,
+    localidad: 'Rosario',
+    telefono: [tel1, tel2]
+};
+var paciente3 = {
+    codigo: 123345,
+    hc: 444123,
+    dni: 31196000,
+    nombreApellido: 'Perez Juan',
+    direccion: 'sarmiento 123',
+    codigoPostal: 3105,
+    localidad: 'diamante',
+    telefono: [tel1, tel2]
+};
+var pacientesList = {
+    respuesta: undefined,
+    paciente: [paciente1, paciente2, paciente3]
+};
 
 
 /***/ }),
@@ -1055,6 +1105,7 @@ var ServiceService = /** @class */ (function () {
         this.endpoint_licencias = this.endpointC + '/licencias/'; // ?ep={codProf} 
         this.endpoint_busquedaEspecialidadesProfesional = this.endpointC + '/busquedaProfesionales';
         this.endpoint_turnos = this.endpointC + '/turnos'; // ?os={codOS}&ep={codEP}&fecha={YYYY-MM-DD}  
+        this.endpoint_pacientes = this.endpointC + '/pacientes?'; //dni={DNI}&apenom={APENOM}';
     }
     ServiceService.prototype.login = function (usuario) {
         if (this.useMockups) {
@@ -1272,6 +1323,30 @@ var ServiceService = /** @class */ (function () {
             }));
         }
     };
+    ServiceService.prototype.getPacientes = function (filtrosPacientes) {
+        console.log("getPacientes" + filtrosPacientes);
+        if (filtrosPacientes == undefined ||
+            (filtrosPacientes.apenom == undefined || filtrosPacientes.apenom.trim.length == 0) &&
+                (filtrosPacientes.dni == undefined || filtrosPacientes.dni.trim.length == 0)) {
+            throw new Error("Ingrese algun criterio de b\u00FAsqueda");
+        }
+        if (this.useMockups) {
+            return Object(_utils_service_utils__WEBPACK_IMPORTED_MODULE_5__["getWsFromMock"])(_mocks_mocks__WEBPACK_IMPORTED_MODULE_4__["paciente2"]);
+        }
+        else {
+            var endpoint = this.endpoint_pacientes;
+            if (filtrosPacientes.apenom != undefined && filtrosPacientes.apenom.trim.length > 0) {
+                endpoint = endpoint + 'apenom=' + filtrosPacientes.apenom.trim + '&';
+            }
+            if (filtrosPacientes.apenom != undefined && filtrosPacientes.apenom.trim.length > 0) {
+                endpoint = endpoint + 'dni=' + filtrosPacientes.dni.trim;
+            }
+            return this.http.get(endpoint).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) {
+                Object(_utils_service_utils__WEBPACK_IMPORTED_MODULE_5__["throwErrorIfBadCode"])(res);
+                return res.paciente;
+            }));
+        }
+    };
     ServiceService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }
     ]; };
@@ -1446,7 +1521,7 @@ export const setTurnoSelected = createAction(
 /*!*****************************************************!*\
   !*** ./src/app/core/store/actions/turno.actions.ts ***!
   \*****************************************************/
-/*! exports provided: CLEAR, clear, SET_OBRA_SOCIAL_SELECTED, setObraSocialSelected, SET_ESPECIALIDAD_PROFESIONAL_SELECTED, setEspecialidadProfesionalSelected, SET_TURNO_SELECTED, setTurnoSelected */
+/*! exports provided: CLEAR, clear, SET_OBRA_SOCIAL_SELECTED, setObraSocialSelected, SET_ESPECIALIDAD_PROFESIONAL_SELECTED, setEspecialidadProfesionalSelected, SET_TURNO_SELECTED, setTurnoSelected, GET_PACIENTES, getPacientes, SET_PACIENTES, setPacientes */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1459,6 +1534,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setEspecialidadProfesionalSelected", function() { return setEspecialidadProfesionalSelected; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_TURNO_SELECTED", function() { return SET_TURNO_SELECTED; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTurnoSelected", function() { return setTurnoSelected; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_PACIENTES", function() { return GET_PACIENTES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPacientes", function() { return getPacientes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_PACIENTES", function() { return SET_PACIENTES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPacientes", function() { return setPacientes; });
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/__ivy_ngcc__/fesm5/store.js");
 
 // clear 
@@ -1472,6 +1551,11 @@ var SET_ESPECIALIDAD_PROFESIONAL_SELECTED = '[Turno] - setEspecialidadProfesiona
 var setEspecialidadProfesionalSelected = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createAction"])(SET_ESPECIALIDAD_PROFESIONAL_SELECTED, Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["props"])());
 var SET_TURNO_SELECTED = '[Turno] - setTurnoSelected ';
 var setTurnoSelected = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createAction"])(SET_TURNO_SELECTED, Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["props"])());
+// lista pacientes
+var GET_PACIENTES = '[Turno] - getPacientes';
+var getPacientes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createAction"])(GET_PACIENTES, Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["props"])());
+var SET_PACIENTES = '[API] - setPacientes ';
+var setPacientes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createAction"])(SET_PACIENTES, Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["props"])());
 
 
 /***/ }),
@@ -1675,24 +1759,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/__ivy_ngcc__/fesm5/effects.js");
-/* harmony import */ var _services_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/service.service */ "./src/app/core/services/service.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _actions_error_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../actions/error.actions */ "./src/app/core/store/actions/error.actions.ts");
+/* harmony import */ var _actions_turno_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions/turno.actions */ "./src/app/core/store/actions/turno.actions.ts");
+/* harmony import */ var _services_service_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/service.service */ "./src/app/core/services/service.service.ts");
+
+
+
+
 
 
 
 
 var TurnoEffects = /** @class */ (function () {
     function TurnoEffects(actions$, turnoService) {
+        var _this = this;
         this.actions$ = actions$;
         this.turnoService = turnoService;
+        this.getPacientes$ = Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["createEffect"])(function () {
+            return _this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_turno_actions__WEBPACK_IMPORTED_MODULE_6__["GET_PACIENTES"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return _this.turnoService.getPacientes(payload.filtrosPacientes).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (pacientesRta) { return ({ type: _actions_turno_actions__WEBPACK_IMPORTED_MODULE_6__["SET_PACIENTES"], pacientesRta: pacientesRta }); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])({ type: _actions_error_actions__WEBPACK_IMPORTED_MODULE_5__["SHOW_ERROR"], error: error.message });
+            })); }));
+        });
     }
     TurnoEffects.ctorParameters = function () { return [
         { type: _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Actions"] },
-        { type: _services_service_service__WEBPACK_IMPORTED_MODULE_3__["ServiceService"] }
+        { type: _services_service_service__WEBPACK_IMPORTED_MODULE_7__["ServiceService"] }
     ]; };
     TurnoEffects = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Actions"],
-            _services_service_service__WEBPACK_IMPORTED_MODULE_3__["ServiceService"]])
+            _services_service_service__WEBPACK_IMPORTED_MODULE_7__["ServiceService"]])
     ], TurnoEffects);
     return TurnoEffects;
 }());
@@ -1990,7 +2088,9 @@ __webpack_require__.r(__webpack_exports__);
 var initialState = {
     turnoSelected: undefined,
     obraSocialSelected: undefined,
+    datosPaciente: undefined,
     paciente: undefined,
+    pacientes: undefined
 };
 function turnoReducer(state, action) {
     return _turnoReducer(state, action);
@@ -2001,6 +2101,9 @@ var _turnoReducer = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["createReduc
 }), Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["on"])(_actions_turno_actions__WEBPACK_IMPORTED_MODULE_2__["setTurnoSelected"], function (state, _a) {
     var turnoSelected = _a.turnoSelected;
     return _setTurnoSelected(state, turnoSelected);
+}), Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["on"])(_actions_turno_actions__WEBPACK_IMPORTED_MODULE_2__["setPacientes"], function (state, _a) {
+    var pacientes = _a.pacientes;
+    return _setPacientes(state, pacientes);
 }));
 var _setObraSocialSelected = function (state, obraSocialSelected) {
     var stateNew = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state);
@@ -2010,6 +2113,11 @@ var _setObraSocialSelected = function (state, obraSocialSelected) {
 var _setTurnoSelected = function (state, turno) {
     var stateNew = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state);
     stateNew.turnoSelected = turno;
+    return stateNew;
+};
+var _setPacientes = function (state, pacientes) {
+    var stateNew = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state);
+    stateNew.pacientes = pacientes;
     return stateNew;
 };
 
@@ -2149,6 +2257,49 @@ var selectFechaTurnos = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createS
 
 /***/ }),
 
+/***/ "./src/app/core/store/selectors/turno.selectors.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/core/store/selectors/turno.selectors.ts ***!
+  \*********************************************************/
+/*! exports provided: selectFormularioTurno, selectObraSocialSelected, selectTurnoSelected, selectPacientesFiltrados, selectFiltroPacientes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectFormularioTurno", function() { return selectFormularioTurno; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectObraSocialSelected", function() { return selectObraSocialSelected; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectTurnoSelected", function() { return selectTurnoSelected; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectPacientesFiltrados", function() { return selectPacientesFiltrados; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectFiltroPacientes", function() { return selectFiltroPacientes; });
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/__ivy_ngcc__/fesm5/store.js");
+/* harmony import */ var _shared_models_request_models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/models/request.models */ "./src/app/shared/models/request.models.ts");
+
+
+var selectFormularioTurno = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createFeatureSelector"])('formularioTurno');
+// seleccion
+// obras sociales
+var selectObraSocialSelected = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(selectFormularioTurno, function (formularioTurno) { return formularioTurno.obraSocialSelected; });
+// turno
+var selectTurnoSelected = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(selectFormularioTurno, function (formularioTurno) { return formularioTurno.turnoSelected; });
+// pacientes
+var selectPacientesFiltrados = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(selectFormularioTurno, function (formularioTurno) { return formularioTurno.paciente; });
+// paciente
+var selectFiltroPacientes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(selectFormularioTurno, function (formularioTurno) {
+    var request = new _shared_models_request_models__WEBPACK_IMPORTED_MODULE_1__["FiltrosPacientes"]();
+    if (formularioTurno.datosPaciente != undefined &&
+        formularioTurno.datosPaciente.dni != undefined) {
+        request.dni = formularioTurno.datosPaciente.dni.toString();
+    }
+    if (formularioTurno.datosPaciente != undefined &&
+        formularioTurno.datosPaciente.nombreApellido != undefined) {
+        request.apenom = formularioTurno.datosPaciente.nombreApellido.trim();
+    }
+    return request;
+});
+
+
+/***/ }),
+
 /***/ "./src/app/core/utils/error.utils.ts":
 /*!*******************************************!*\
   !*** ./src/app/core/utils/error.utils.ts ***!
@@ -2240,6 +2391,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/__ivy_ngcc__/esm5/material.es5.js");
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/__ivy_ngcc__/fesm5/store.js");
+/* harmony import */ var _core_store_selectors_turno_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../core/store/selectors/turno.selectors */ "./src/app/core/store/selectors/turno.selectors.ts");
+/* harmony import */ var _core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../core/store/actions/turno.actions */ "./src/app/core/store/actions/turno.actions.ts");
+
+
 
 
 
@@ -2282,6 +2437,12 @@ var AsignarTurnoDialogComponent = /** @class */ (function () {
     };
     AsignarTurnoDialogComponent.prototype.onCancelarClick = function () {
         this.dialogRef.close();
+    };
+    AsignarTurnoDialogComponent.prototype.buscarPacientes = function () {
+        var _this = this;
+        this.store.select(_core_store_selectors_turno_selectors__WEBPACK_IMPORTED_MODULE_4__["selectFiltroPacientes"]).subscribe(function (filtrosPacientes) {
+            _this.store.dispatch(_core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_5__["getPacientes"]({ filtrosPacientes: filtrosPacientes }));
+        }).unsubscribe();
     };
     AsignarTurnoDialogComponent.ctorParameters = function () { return [
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"] },
@@ -2687,7 +2848,7 @@ var ErrorControlComponent = /** @class */ (function () {
 /*!*************************************************!*\
   !*** ./src/app/shared/models/request.models.ts ***!
   \*************************************************/
-/*! exports provided: Login, DatosFormulario, FiltrosLicencias, FiltrosProfesionales, FiltrosTurnos */
+/*! exports provided: Login, DatosFormulario, FiltrosLicencias, FiltrosProfesionales, FiltrosPacientes, FiltrosTurnos */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2696,6 +2857,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatosFormulario", function() { return DatosFormulario; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FiltrosLicencias", function() { return FiltrosLicencias; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FiltrosProfesionales", function() { return FiltrosProfesionales; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FiltrosPacientes", function() { return FiltrosPacientes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FiltrosTurnos", function() { return FiltrosTurnos; });
 var Login = /** @class */ (function () {
     function Login() {
@@ -2719,6 +2881,12 @@ var FiltrosProfesionales = /** @class */ (function () {
     function FiltrosProfesionales() {
     }
     return FiltrosProfesionales;
+}());
+
+var FiltrosPacientes = /** @class */ (function () {
+    function FiltrosPacientes() {
+    }
+    return FiltrosPacientes;
 }());
 
 var FiltrosTurnos = /** @class */ (function () {
