@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content\">\r\n  <div *ngIf=\"(token$ | async) != undefined\">\r\n    <div class=\"my-col-30-r caling-svg-container\" *ngIf=\"(token$ | async) != undefined\">\r\n      <button mat-fab color=\"primary\" aria-label=\"Logout\" (click)=\"logout()\">\r\n        <mat-icon>exit_to_app</mat-icon>\r\n      </button>\r\n    </div>  \r\n    <div class=\"my-col-40-r\">\r\n      <div class=\"header scaling-svg-container\">\r\n        <a href=\"home\">\r\n          <img src=\"assets/img/LogoHE200.png\" alt=\"logo\" name=\"logoHeader\" style=\"width:100px; height:50px;\">\r\n        </a>\r\n      </div> \r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"(token$ | async) == undefined\">\r\n    <div class=\"my-col-10-r\" >\r\n    </div>\r\n    <div class=\"my-col-20-r\"></div>\r\n    <div class=\"my-col-40-r\">\r\n      <div class=\"header scaling-svg-container\">\r\n        <a href=\"home\">\r\n          <img src=\"assets/img/LogoHE200.png\" alt=\"logo\" name=\"logoHeader\" style=\"width:100px; height:50px;\">\r\n        </a>\r\n      </div> \r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content\">\r\n\r\n\r\n  <div *ngIf=\"(token$ | async) != undefined\">\r\n    <div class=\"recuadroSeccion\">\r\n      <span class=\"tituloSeccion\">Consulta de Turnos</span>\r\n      <button class=\"exit\" aria-label=\"Logout\" (click)=\"logout()\">\r\n        <mat-icon>exit_to_app</mat-icon>\r\n      </button>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <div *ngIf=\"(token$ | async) == undefined\">\r\n    <div class=\"my-col-10-r\" >\r\n    </div>\r\n    <div class=\"my-col-20-r\"></div>\r\n    <div class=\"my-col-40-r\">\r\n      <div class=\"header scaling-svg-container\">\r\n        <a href=\"home\">\r\n          <img src=\"assets/img/LogoHE200.png\" alt=\"logo\" name=\"logoHeader\" style=\"width:100px; height:50px;\">\r\n        </a>\r\n      </div> \r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>\r\n");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Licencias profesional</h1>\r\n\r\n<div mat-dialog-content>\r\n\r\n    <div class=\"row clearfix\">\r\n        <table mat-table [dataSource]=\"licencias\" >\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumnsBusq1\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumnsBusq1;\"></tr>\r\n\r\n            <ng-container matColumnDef=\"desde\">\r\n                <th mat-header-cell *matHeaderCellDef style=\"width: 25%;\" mat-sort-header>\r\n                    Fecha Desde\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let row\" >\r\n                    {{row.fechaDesde | date: 'dd/MM/yyyy HH:mm'}}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"hasta\">\r\n                <th mat-header-cell *matHeaderCellDef style=\"width: 20%;\" mat-sort-header>\r\n                    Fecha Hasta\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let row\" >\r\n                    {{row.fechaHasta | date: 'dd/MM/yyyy HH:mm'}}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"motivo\">\r\n                <th mat-header-cell *matHeaderCellDef style=\"width: 40%;\" mat-sort-header>\r\n                    Motivo\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let row\" >\r\n                    {{row.motivo}}\r\n                </td>\r\n            </ng-container>\r\n\r\n        </table>\r\n    </div>\r\n</div>\r\n<div mat-dialog-actions>\r\n  <button mat-button (click)=\"onCancelarClick()\">Cancelar</button>\r\n  <!--button mat-button \r\n    [mat-dialog-close]=\"data.profesional\" cdkFocusInitial>Ok</button-->\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Licencias profesional</h1>\r\n\r\n<div mat-dialog-content>\r\n\r\n    <div class=\"row clearfix\">\r\n        <table mat-table [dataSource]=\"licencias\" class=\"myTable\">\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumnsBusq1\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumnsBusq1;\"></tr>\r\n\r\n            <ng-container matColumnDef=\"desde\">\r\n                <th mat-header-cell *matHeaderCellDef style=\"width: 25%;\" class=\"titleTable\">\r\n                    Fecha Desde\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let row\" class=\"rowTable\">\r\n                    {{row.fechaDesde | date: 'dd/MM/yyyy HH:mm'}}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"hasta\">\r\n                <th mat-header-cell *matHeaderCellDef style=\"width: 20%;\" class=\"titleTable\">\r\n                    Fecha Hasta\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let row\" class=\"rowTable\">\r\n                    {{row.fechaHasta | date: 'dd/MM/yyyy HH:mm'}}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"motivo\">\r\n                <th mat-header-cell *matHeaderCellDef style=\"width: 40%;\" class=\"titleTable\">\r\n                    Motivo\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let row\" class=\"rowTable\" >\r\n                    {{row.motivo}}\r\n                </td>\r\n            </ng-container>\r\n\r\n        </table>\r\n    </div>\r\n</div>\r\n<div mat-dialog-actions>\r\n  <button mat-button (click)=\"onCancelarClick()\">Cancelar</button>\r\n  <!--button mat-button \r\n    [mat-dialog-close]=\"data.profesional\" cdkFocusInitial>Ok</button-->\r\n</div>\r\n");
 
 /***/ }),
 
@@ -552,7 +552,7 @@ var FooterComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".scaling-svg-container {\r\n    position: relative; \r\n    height: 0; \r\n    width: 100%; \r\n    padding: 0;\r\n    padding-top: 1%; \r\n    padding-bottom: 12%; \r\n    /* override this inline for aspect ratio other than square */\r\n}\r\n.scaling-svg {\r\n    position: absolute; \r\n    height: 100%; \r\n    width: 100%; \r\n    left: 0; \r\n    top: 0;\r\n}\r\n.mat-option {\r\n    margin: 1rem 0;\r\n    overflow: visible;\r\n    line-height: initial;\r\n    word-wrap: break-word;\r\n    white-space: pre-wrap;\r\n    height: unset;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7SUFDbEIsU0FBUztJQUNULFdBQVc7SUFDWCxVQUFVO0lBQ1YsZUFBZTtJQUNmLG1CQUFtQjtJQUNuQiw0REFBNEQ7QUFDaEU7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osV0FBVztJQUNYLE9BQU87SUFDUCxNQUFNO0FBQ1Y7QUFFQTtJQUNJLGNBQWM7SUFDZCxpQkFBaUI7SUFDakIsb0JBQW9CO0lBQ3BCLHFCQUFxQjtJQUNyQixxQkFBcUI7SUFDckIsYUFBYTtFQUNmIiwiZmlsZSI6InNyYy9hcHAvY29yZS9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc2NhbGluZy1zdmctY29udGFpbmVyIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsgXHJcbiAgICBoZWlnaHQ6IDA7IFxyXG4gICAgd2lkdGg6IDEwMCU7IFxyXG4gICAgcGFkZGluZzogMDtcclxuICAgIHBhZGRpbmctdG9wOiAxJTsgXHJcbiAgICBwYWRkaW5nLWJvdHRvbTogMTIlOyBcclxuICAgIC8qIG92ZXJyaWRlIHRoaXMgaW5saW5lIGZvciBhc3BlY3QgcmF0aW8gb3RoZXIgdGhhbiBzcXVhcmUgKi9cclxufVxyXG4uc2NhbGluZy1zdmcge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlOyBcclxuICAgIGhlaWdodDogMTAwJTsgXHJcbiAgICB3aWR0aDogMTAwJTsgXHJcbiAgICBsZWZ0OiAwOyBcclxuICAgIHRvcDogMDtcclxufVxyXG5cclxuLm1hdC1vcHRpb24ge1xyXG4gICAgbWFyZ2luOiAxcmVtIDA7XHJcbiAgICBvdmVyZmxvdzogdmlzaWJsZTtcclxuICAgIGxpbmUtaGVpZ2h0OiBpbml0aWFsO1xyXG4gICAgd29yZC13cmFwOiBicmVhay13b3JkO1xyXG4gICAgd2hpdGUtc3BhY2U6IHByZS13cmFwO1xyXG4gICAgaGVpZ2h0OiB1bnNldDtcclxuICB9XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".scaling-svg-container {\r\n    position: relative; \r\n    height: 0; \r\n    width: 100%; \r\n    padding: 0;\r\n    padding-top: 1%; \r\n    padding-bottom: 12%; \r\n    /* override this inline for aspect ratio other than square */\r\n}\r\n.scaling-svg {\r\n    position: absolute; \r\n    height: 100%; \r\n    width: 100%; \r\n    left: 0; \r\n    top: 0;\r\n}\r\n.mat-option {\r\n    margin: 1rem 0;\r\n    overflow: visible;\r\n    line-height: initial;\r\n    word-wrap: break-word;\r\n    white-space: pre-wrap;\r\n    height: unset;\r\n  }\r\n.recuadroSeccion {\r\n    background-color: #3567AF;\r\n    color: white;\r\n    padding-left: 5px;\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    font-size: x-large;\r\n}\r\n.exit {\r\n    float: right;\r\n    background-color: #3567AF;\r\n    color: white;\r\n    border: none;\r\n    padding-right: 10px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7SUFDbEIsU0FBUztJQUNULFdBQVc7SUFDWCxVQUFVO0lBQ1YsZUFBZTtJQUNmLG1CQUFtQjtJQUNuQiw0REFBNEQ7QUFDaEU7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osV0FBVztJQUNYLE9BQU87SUFDUCxNQUFNO0FBQ1Y7QUFFQTtJQUNJLGNBQWM7SUFDZCxpQkFBaUI7SUFDakIsb0JBQW9CO0lBQ3BCLHFCQUFxQjtJQUNyQixxQkFBcUI7SUFDckIsYUFBYTtFQUNmO0FBR0Y7SUFDSSx5QkFBeUI7SUFDekIsWUFBWTtJQUNaLGlCQUFpQjtJQUNqQixpQkFBaUI7SUFDakIsb0JBQW9CO0lBQ3BCLGtCQUFrQjtBQUN0QjtBQUVBO0lBQ0ksWUFBWTtJQUNaLHlCQUF5QjtJQUN6QixZQUFZO0lBQ1osWUFBWTtJQUNaLG1CQUFtQjtBQUN2QiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNjYWxpbmctc3ZnLWNvbnRhaW5lciB7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7IFxyXG4gICAgaGVpZ2h0OiAwOyBcclxuICAgIHdpZHRoOiAxMDAlOyBcclxuICAgIHBhZGRpbmc6IDA7XHJcbiAgICBwYWRkaW5nLXRvcDogMSU7IFxyXG4gICAgcGFkZGluZy1ib3R0b206IDEyJTsgXHJcbiAgICAvKiBvdmVycmlkZSB0aGlzIGlubGluZSBmb3IgYXNwZWN0IHJhdGlvIG90aGVyIHRoYW4gc3F1YXJlICovXHJcbn1cclxuLnNjYWxpbmctc3ZnIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsgXHJcbiAgICBoZWlnaHQ6IDEwMCU7IFxyXG4gICAgd2lkdGg6IDEwMCU7IFxyXG4gICAgbGVmdDogMDsgXHJcbiAgICB0b3A6IDA7XHJcbn1cclxuXHJcbi5tYXQtb3B0aW9uIHtcclxuICAgIG1hcmdpbjogMXJlbSAwO1xyXG4gICAgb3ZlcmZsb3c6IHZpc2libGU7XHJcbiAgICBsaW5lLWhlaWdodDogaW5pdGlhbDtcclxuICAgIHdvcmQtd3JhcDogYnJlYWstd29yZDtcclxuICAgIHdoaXRlLXNwYWNlOiBwcmUtd3JhcDtcclxuICAgIGhlaWdodDogdW5zZXQ7XHJcbiAgfVxyXG5cclxuXHJcbi5yZWN1YWRyb1NlY2Npb24ge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzM1NjdBRjtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIHBhZGRpbmctbGVmdDogNXB4O1xyXG4gICAgcGFkZGluZy10b3A6IDE1cHg7XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogMTVweDtcclxuICAgIGZvbnQtc2l6ZTogeC1sYXJnZTtcclxufVxyXG5cclxuLmV4aXQge1xyXG4gICAgZmxvYXQ6IHJpZ2h0O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzM1NjdBRjtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -2779,8 +2779,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../core/store/selectors/contexto.selectors */ "./src/app/core/store/selectors/contexto.selectors.ts");
 /* harmony import */ var _core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../core/store/selectors/form.selectors */ "./src/app/core/store/selectors/form.selectors.ts");
 /* harmony import */ var _core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../core/store/actions/form.actions */ "./src/app/core/store/actions/form.actions.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/models/datos.models */ "./src/app/shared/models/datos.models.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
 
 
 
@@ -2797,8 +2799,8 @@ var BusqProfesionalDialogComponent = /** @class */ (function () {
         this.dialogRef = dialogRef;
         this.data = data;
         // filtros
-        this.especialidadFC = new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('');
-        this.obraSocialFC = new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]);
+        this.especialidadFC = new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormControl"]('');
+        this.obraSocialFC = new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required]);
         this.displayedColumnsBusq1 = ['codigo', 'nombreApellido', 'sinOS', 'AM', 'PM'];
         console.log("constructor popup");
         this.obrasSociales$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_5__["selectAllObrasSociales"]);
@@ -2811,17 +2813,17 @@ var BusqProfesionalDialogComponent = /** @class */ (function () {
         var _this = this;
         console.log("onInit popup");
         this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_6__["setEspecialidadesProfesionalesFiltradas"]({ especialidadesProfesionalesFiltradas: undefined }));
-        this.store.select(_core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_4__["getToken"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["filter"])(function (token) { return (token != undefined || token != null); })).subscribe(function () {
-            _this.filteredObrasSociales$ = _this.obraSocialFC.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["map"])(function (value) { return typeof value === 'string' ? value : value.nombre; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["switchMap"])(function (x) { return _this.filterOs(x); }));
+        this.store.select(_core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_4__["getToken"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["filter"])(function (token) { return (token != undefined || token != null); })).subscribe(function () {
+            _this.filteredObrasSociales$ = _this.obraSocialFC.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["map"])(function (value) { return typeof value === 'string' ? value : value.nombre; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["switchMap"])(function (x) { return _this.filterOs(x); }));
             _this.obraSocialFC.valueChanges.subscribe(function (value) { return _this.cambioObraSocial(value); });
-            _this.filteredEspecialidades$ = _this.especialidadFC.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["map"])(function (value) { return typeof value === 'string' ? value : value.nombre; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["switchMap"])(function (x) { return _this.filterEsp(x); }));
+            _this.filteredEspecialidades$ = _this.especialidadFC.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["map"])(function (value) { return typeof value === 'string' ? value : value.nombre; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["switchMap"])(function (x) { return _this.filterEsp(x); }));
             _this.especialidadFC.valueChanges.subscribe(function (value) { return _this.cambioEspecialidad(value); });
         }).unsubscribe();
     };
     BusqProfesionalDialogComponent.prototype.filterOs = function (value) {
         var filterValue = value.toLowerCase();
         if (value != "" && !isNaN(Number(value))) {
-            return this.obrasSociales$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["map"])(function (os) {
+            return this.obrasSociales$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["map"])(function (os) {
                 return os.filter(function (el) {
                     var _a, _b;
                     return ((_a = el.nombre) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(filterValue)) !== -1 ||
@@ -2840,7 +2842,7 @@ var BusqProfesionalDialogComponent = /** @class */ (function () {
                 });
             }));
         }
-        return this.obrasSociales$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["map"])(function (os) {
+        return this.obrasSociales$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["map"])(function (os) {
             return os.filter(function (el) {
                 var _a, _b;
                 return ((_a = el.nombre) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(filterValue)) !== -1 ||
@@ -2851,7 +2853,7 @@ var BusqProfesionalDialogComponent = /** @class */ (function () {
     BusqProfesionalDialogComponent.prototype.filterEsp = function (value) {
         var filterValue = value.toLowerCase();
         if (value != "" && !isNaN(Number(value))) {
-            return this.especialidades$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["map"])(function (esp) {
+            return this.especialidades$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["map"])(function (esp) {
                 return esp.filter(function (esp) {
                     var _a, _b;
                     return ((_a = esp.nombre) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(filterValue)) !== -1 ||
@@ -2870,7 +2872,7 @@ var BusqProfesionalDialogComponent = /** @class */ (function () {
                 });
             }));
         }
-        return this.especialidades$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["map"])(function (esp) {
+        return this.especialidades$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["map"])(function (esp) {
             return esp.filter(function (esp) {
                 var _a, _b;
                 return ((_a = esp.nombre) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(filterValue)) !== -1 ||
@@ -2886,7 +2888,7 @@ var BusqProfesionalDialogComponent = /** @class */ (function () {
     };
     BusqProfesionalDialogComponent.prototype.onCancelarClick = function () {
         var _this = this;
-        this.data.profesional = undefined;
+        this.data.profesional = new _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_7__["EspecialidadProfesional"];
         this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_6__["setEspecialidadProfesionalSelected"]({ especialidadProfesionalSelected: undefined }));
         setTimeout(function () {
             _this.dialogRef.close();
@@ -2964,6 +2966,19 @@ var BusqProfesionalDialogComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/modules/home/components/licencias/licencias.component.css":
+/*!***************************************************************************!*\
+  !*** ./src/app/modules/home/components/licencias/licencias.component.css ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".myTable {\r\n    width: 100%;\r\n}\r\n\r\n.titleTable {\r\n    padding-right: 2px;\r\n    padding-left: 1px;\r\n}\r\n\r\n.rowTable {\r\n    cursor: pointer;\r\n    vertical-align: middle;\r\n    padding-right: 2px;\r\n    padding-left: 1px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9ob21lL2NvbXBvbmVudHMvbGljZW5jaWFzL2xpY2VuY2lhcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksV0FBVztBQUNmOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLGVBQWU7SUFDZixzQkFBc0I7SUFDdEIsa0JBQWtCO0lBQ2xCLGlCQUFpQjtBQUNyQiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvaG9tZS9jb21wb25lbnRzL2xpY2VuY2lhcy9saWNlbmNpYXMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5teVRhYmxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4udGl0bGVUYWJsZSB7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAycHg7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDFweDtcclxufVxyXG5cclxuLnJvd1RhYmxlIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAycHg7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDFweDtcclxufSJdfQ== */");
+
+/***/ }),
+
 /***/ "./src/app/modules/home/components/licencias/licencias.component.ts":
 /*!**************************************************************************!*\
   !*** ./src/app/modules/home/components/licencias/licencias.component.ts ***!
@@ -3012,6 +3027,7 @@ var LicenciasDialogComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-licencias-dialog',
             template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./licencias.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/home/components/licencias/licencias.component.html")).default,
+            styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./licencias.component.css */ "./src/app/modules/home/components/licencias/licencias.component.css")).default]
         }),
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"],
@@ -3137,6 +3153,125 @@ var ErrorControlComponent = /** @class */ (function () {
             _ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"]])
     ], ErrorControlComponent);
     return ErrorControlComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/models/datos.models.ts":
+/*!***********************************************!*\
+  !*** ./src/app/shared/models/datos.models.ts ***!
+  \***********************************************/
+/*! exports provided: Contexto, ObraSocial, Plan, CentroAtencion, Especialidad, Rango, Horario, EspecialidadProfesional, EspecialidadProfesionalBusq, Licencia, Turno, Telefono, Paciente, TurnoPaciente */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Contexto", function() { return Contexto; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ObraSocial", function() { return ObraSocial; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Plan", function() { return Plan; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CentroAtencion", function() { return CentroAtencion; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Especialidad", function() { return Especialidad; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rango", function() { return Rango; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Horario", function() { return Horario; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EspecialidadProfesional", function() { return EspecialidadProfesional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EspecialidadProfesionalBusq", function() { return EspecialidadProfesionalBusq; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Licencia", function() { return Licencia; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Turno", function() { return Turno; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Telefono", function() { return Telefono; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Paciente", function() { return Paciente; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TurnoPaciente", function() { return TurnoPaciente; });
+// login
+var Contexto = /** @class */ (function () {
+    function Contexto() {
+    }
+    return Contexto;
+}());
+
+// obra social
+var ObraSocial = /** @class */ (function () {
+    function ObraSocial() {
+    }
+    return ObraSocial;
+}());
+
+var Plan = /** @class */ (function () {
+    function Plan() {
+    }
+    return Plan;
+}());
+
+// centro atencion
+var CentroAtencion = /** @class */ (function () {
+    function CentroAtencion() {
+    }
+    return CentroAtencion;
+}());
+
+// especialidad
+var Especialidad = /** @class */ (function () {
+    function Especialidad() {
+    }
+    return Especialidad;
+}());
+
+// especialidadProfesional
+var Rango = /** @class */ (function () {
+    function Rango() {
+    }
+    return Rango;
+}());
+
+var Horario = /** @class */ (function () {
+    function Horario() {
+    }
+    return Horario;
+}());
+
+var EspecialidadProfesional = /** @class */ (function () {
+    function EspecialidadProfesional() {
+    }
+    return EspecialidadProfesional;
+}());
+
+var EspecialidadProfesionalBusq = /** @class */ (function () {
+    function EspecialidadProfesionalBusq() {
+    }
+    return EspecialidadProfesionalBusq;
+}());
+
+// licencias
+var Licencia = /** @class */ (function () {
+    function Licencia() {
+    }
+    return Licencia;
+}());
+
+// turnos
+var Turno = /** @class */ (function () {
+    function Turno() {
+    }
+    return Turno;
+}());
+
+// paciente
+var Telefono = /** @class */ (function () {
+    function Telefono() {
+    }
+    return Telefono;
+}());
+
+var Paciente = /** @class */ (function () {
+    function Paciente() {
+    }
+    return Paciente;
+}());
+
+var TurnoPaciente = /** @class */ (function () {
+    function TurnoPaciente() {
+    }
+    return TurnoPaciente;
 }());
 
 
@@ -3269,8 +3404,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    endpoint: 'http://localhost:8080',
-    mockups: true,
+    endpoint: 'https://hespanolserviciosweb.com.ar:5007/api',
+    mockups: false,
     username: 'Test',
     password: 'password',
 };
