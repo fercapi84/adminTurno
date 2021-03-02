@@ -26878,12 +26878,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/__ivy_ngcc__/fesm5/store.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../core/store/actions/form.actions */ "./src/app/core/store/actions/form.actions.ts");
-/* harmony import */ var _core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../core/store/selectors/contexto.selectors */ "./src/app/core/store/selectors/contexto.selectors.ts");
-/* harmony import */ var _core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../core/store/selectors/form.selectors */ "./src/app/core/store/selectors/form.selectors.ts");
-/* harmony import */ var _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../shared/models/datos.models */ "./src/app/shared/models/datos.models.ts");
-/* harmony import */ var _asignarTurno_asignarTurno_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../asignarTurno/asignarTurno.component */ "./src/app/modules/home/components/asignarTurno/asignarTurno.component.ts");
-/* harmony import */ var _busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../busqProfesional/busqProfesional.component */ "./src/app/modules/home/components/busqProfesional/busqProfesional.component.ts");
-/* harmony import */ var _licencias_licencias_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../licencias/licencias.component */ "./src/app/modules/home/components/licencias/licencias.component.ts");
+/* harmony import */ var _core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../core/store/actions/turno.actions */ "./src/app/core/store/actions/turno.actions.ts");
+/* harmony import */ var _core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../core/store/selectors/contexto.selectors */ "./src/app/core/store/selectors/contexto.selectors.ts");
+/* harmony import */ var _core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../core/store/selectors/form.selectors */ "./src/app/core/store/selectors/form.selectors.ts");
+/* harmony import */ var _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../shared/models/datos.models */ "./src/app/shared/models/datos.models.ts");
+/* harmony import */ var _asignarTurno_asignarTurno_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../asignarTurno/asignarTurno.component */ "./src/app/modules/home/components/asignarTurno/asignarTurno.component.ts");
+/* harmony import */ var _busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../busqProfesional/busqProfesional.component */ "./src/app/modules/home/components/busqProfesional/busqProfesional.component.ts");
+/* harmony import */ var _licencias_licencias_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../licencias/licencias.component */ "./src/app/modules/home/components/licencias/licencias.component.ts");
+
 
 
 
@@ -26923,13 +26925,13 @@ var FormPrincipalComponent = /** @class */ (function () {
             return true;
         };
         // this.contexto$ = store.select(ContextSelectors.getContexto);
-        this.obrasSociales$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectAllObrasSociales"]);
-        this.profesionales$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectAllProfesionales"]);
-        this.fechaFiltro$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectFechaTurnos"]);
-        store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectFechaTurnos"]).subscribe(function (fechaFiltro) {
+        this.obrasSociales$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__["selectAllObrasSociales"]);
+        this.profesionales$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__["selectAllProfesionales"]);
+        this.fechaFiltro$ = store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__["selectFechaTurnos"]);
+        store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__["selectFechaTurnos"]).subscribe(function (fechaFiltro) {
             _this.fechaFiltro = fechaFiltro;
         });
-        store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectTurnos"]).subscribe(function (turnosRespuesta) {
+        store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__["selectTurnos"]).subscribe(function (turnosRespuesta) {
             _this.turnos = turnosRespuesta === null || turnosRespuesta === void 0 ? void 0 : turnosRespuesta.turno;
             _this.licencia = turnosRespuesta === null || turnosRespuesta === void 0 ? void 0 : turnosRespuesta.licencia;
         });
@@ -26938,11 +26940,11 @@ var FormPrincipalComponent = /** @class */ (function () {
     FormPrincipalComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log("init formulario");
-        this.store.select(_core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_8__["getToken"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["filter"])(function (token) { return (token === undefined || token === null); })).subscribe(function () {
+        this.store.select(_core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_9__["getToken"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["filter"])(function (token) { return (token === undefined || token === null); })).subscribe(function () {
             console.log("no logueado");
             _this.router.navigate(['/home']);
         });
-        this.store.select(_core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_8__["getToken"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["filter"])(function (token) { return (token != undefined || token != null); })).subscribe(function () {
+        this.store.select(_core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_9__["getToken"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["filter"])(function (token) { return (token != undefined || token != null); })).subscribe(function () {
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getEspecialidades"]());
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getObraSociales"]());
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getEspecialidadesProfesionales"]());
@@ -27031,7 +27033,7 @@ var FormPrincipalComponent = /** @class */ (function () {
         }
         setTimeout(function () {
             if (value != undefined && value.codigo != undefined && value.alertas == undefined) {
-                _this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectObraSocialSelected"]).subscribe(function (os) {
+                _this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__["selectObraSocialSelected"]).subscribe(function (os) {
                     console.log("alerta");
                     _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getAlertasObraSocial"]({ obraSocial: os }));
                     console.log("alerta set " + os.alertas);
@@ -27090,26 +27092,29 @@ var FormPrincipalComponent = /** @class */ (function () {
     FormPrincipalComponent.prototype.buscarTurnos = function () {
         var _this = this;
         this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["setFechaTurno"]({ fechaSelected: this.selectedDate }));
-        this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectBusquedaTurnos"]).subscribe(function (filtrosTurnos) {
+        this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__["selectBusquedaTurnos"]).subscribe(function (filtrosTurnos) {
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getTurnos"]({ filtrosTurnos: filtrosTurnos }));
         }).unsubscribe();
     };
     // popup licencias
     FormPrincipalComponent.prototype.buscarLicencias = function () {
         var _this = this;
-        this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selecBusquedatLicencias"]).subscribe(function (filtrosLicencias) {
+        this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__["selecBusquedatLicencias"]).subscribe(function (filtrosLicencias) {
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getLicencias"]({ filtrosLicencias: filtrosLicencias }));
-            var dialogRef = _this.dialog.open(_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_13__["LicenciasDialogComponent"], {
+            var dialogRef = _this.dialog.open(_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_14__["LicenciasDialogComponent"], {
                 width: '50%',
                 data: {
-                    profesional: new _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_10__["EspecialidadProfesional"]()
+                    profesional: new _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_11__["EspecialidadProfesional"]()
                 }
             });
         }).unsubscribe();
     };
     // popup turnos
     FormPrincipalComponent.prototype.asignarTurno = function (turnoSel) {
-        var dialogRef = this.dialog.open(_asignarTurno_asignarTurno_component__WEBPACK_IMPORTED_MODULE_11__["AsignarTurnoDialogComponent"], {
+        console.log("turnoSel " + turnoSel.codigo);
+        this.store.dispatch(_core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_8__["setTurnoSelected"]({ turnoSelected: turnoSel }));
+        this.store.dispatch(_core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_8__["asignarTurno"]({ codigoTurno: turnoSel.codigo }));
+        var dialogRef = this.dialog.open(_asignarTurno_asignarTurno_component__WEBPACK_IMPORTED_MODULE_12__["AsignarTurnoDialogComponent"], {
             width: '80%',
             data: {
                 profesional: this.profesional,
@@ -27122,17 +27127,17 @@ var FormPrincipalComponent = /** @class */ (function () {
     FormPrincipalComponent.prototype.busqProfAvanzada = function () {
         var _this = this;
         console.log("busqProfAvanzada");
-        var dialogRef = this.dialog.open(_busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_12__["BusqProfesionalDialogComponent"], {
+        var dialogRef = this.dialog.open(_busqProfesional_busqProfesional_component__WEBPACK_IMPORTED_MODULE_13__["BusqProfesionalDialogComponent"], {
             width: '50%',
             data: {
                 tipoBusqueda: 1,
-                profesional: new _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_10__["EspecialidadProfesional"]()
+                profesional: new _shared_models_datos_models__WEBPACK_IMPORTED_MODULE_11__["EspecialidadProfesional"]()
             }
         });
         dialogRef.afterClosed().subscribe(function (result) {
             console.log("busqProfAvanzada result " + result);
             setTimeout(function () {
-                _this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectProfesionalSelected"]).subscribe(function (pe) {
+                _this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__["selectProfesionalSelected"]).subscribe(function (pe) {
                     console.log("busqProfAvanzada pe " + pe);
                     if (pe != undefined) {
                         _this.profesionalFC.setValue(pe);
@@ -27141,7 +27146,7 @@ var FormPrincipalComponent = /** @class */ (function () {
                         _this.profesionalFC.setValue('');
                     }
                 }).unsubscribe();
-                _this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_9__["selectObraSocialSelected"]).subscribe(function (os) {
+                _this.store.select(_core_store_selectors_form_selectors__WEBPACK_IMPORTED_MODULE_10__["selectObraSocialSelected"]).subscribe(function (os) {
                     console.log("afterClosed");
                     _this.obraSocialFC.setValue(os);
                 }).unsubscribe();
