@@ -26993,6 +26993,7 @@ var FormPrincipalComponent = /** @class */ (function () {
             _this.router.navigate(['/home']);
         });
         this.store.select(_core_store_selectors_contexto_selectors__WEBPACK_IMPORTED_MODULE_9__["getToken"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["filter"])(function (token) { return (token != undefined || token != null); })).subscribe(function () {
+            _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getLocalidades"]());
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getEspecialidades"]());
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getObraSociales"]());
             _this.store.dispatch(_core_store_actions_form_actions__WEBPACK_IMPORTED_MODULE_7__["getEspecialidadesProfesionales"]());
