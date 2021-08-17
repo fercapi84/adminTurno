@@ -26961,6 +26961,7 @@ var FormPrincipalComponent = /** @class */ (function () {
                 // marca como asignado
                 if (((_a = rta === null || rta === void 0 ? void 0 : rta.turno) === null || _a === void 0 ? void 0 : _a.estado) == 1) {
                     _this.store.dispatch(_core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_8__["asignarTurno"]({ codigoTurno: rta.turno.codigo }));
+                    // TODO: si da 400 mostrar algun otro msj en pantalla
                 }
                 if (((_b = rta === null || rta === void 0 ? void 0 : rta.turnoAsignado) === null || _b === void 0 ? void 0 : _b.codigoPaciente) != undefined && ((_c = rta === null || rta === void 0 ? void 0 : rta.turnoAsignado) === null || _c === void 0 ? void 0 : _c.codigoPaciente) > 0) {
                     // os del turno asignado
