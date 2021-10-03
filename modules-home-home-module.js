@@ -26956,18 +26956,18 @@ var FormPrincipalComponent = /** @class */ (function () {
             _this.loading = false;
         });
         this.store.select(_core_store_selectors_turno_selectors__WEBPACK_IMPORTED_MODULE_11__["selectTurnoRecuperado"]).subscribe(function (rta) {
-            var _a, _b, _c, _d;
+            var _a, _b, _c, _d, _e;
             if (rta != undefined && rta.respuesta.codigo == 200) {
                 // marca como asignado
-                if (((_a = rta === null || rta === void 0 ? void 0 : rta.turno) === null || _a === void 0 ? void 0 : _a.estado) == 1) {
+                if (((_a = rta === null || rta === void 0 ? void 0 : rta.turno) === null || _a === void 0 ? void 0 : _a.estado) == 1 || ((_b = rta === null || rta === void 0 ? void 0 : rta.turno) === null || _b === void 0 ? void 0 : _b.estado) == 2) {
                     _this.store.dispatch(_core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_8__["asignarTurno"]({ codigoTurno: rta.turno.codigo }));
                     // TODO: si da 400 mostrar algun otro msj en pantalla
                 }
-                if (((_b = rta === null || rta === void 0 ? void 0 : rta.turnoAsignado) === null || _b === void 0 ? void 0 : _b.codigoPaciente) != undefined && ((_c = rta === null || rta === void 0 ? void 0 : rta.turnoAsignado) === null || _c === void 0 ? void 0 : _c.codigoPaciente) > 0) {
+                if (((_c = rta === null || rta === void 0 ? void 0 : rta.turnoAsignado) === null || _c === void 0 ? void 0 : _c.codigoPaciente) != undefined && ((_d = rta === null || rta === void 0 ? void 0 : rta.turnoAsignado) === null || _d === void 0 ? void 0 : _d.codigoPaciente) > 0) {
                     // os del turno asignado
                     _this.store.dispatch(_core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_8__["setObraSocialSelected"]({ obraSocialSelected: rta.turnoAsignado.obraSocial }));
                     var filtrosPacientes = new _shared_models_request_models__WEBPACK_IMPORTED_MODULE_13__["FiltrosPacientes"]();
-                    filtrosPacientes.codigo = (_d = rta === null || rta === void 0 ? void 0 : rta.turnoAsignado) === null || _d === void 0 ? void 0 : _d.codigoPaciente;
+                    filtrosPacientes.codigo = (_e = rta === null || rta === void 0 ? void 0 : rta.turnoAsignado) === null || _e === void 0 ? void 0 : _e.codigoPaciente;
                     _this.store.dispatch(_core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_8__["getPacienteByCodigo"]({ filtrosPacientes: filtrosPacientes }));
                 }
                 var dialogRef = _this.dialog.open(_asignarTurno_asignarTurno_component__WEBPACK_IMPORTED_MODULE_14__["AsignarTurnoDialogComponent"], {
@@ -26978,6 +26978,26 @@ var FormPrincipalComponent = /** @class */ (function () {
                     }
                 });
                 dialogRef.afterClosed().subscribe(function (result) {
+                    var _a, _b;
+                    if (result == undefined || result.event == undefined) {
+                        //console.log("salio por escape");
+                        if (((_a = rta === null || rta === void 0 ? void 0 : rta.turno) === null || _a === void 0 ? void 0 : _a.estado) == 1 || ((_b = rta === null || rta === void 0 ? void 0 : rta.turno) === null || _b === void 0 ? void 0 : _b.estado) == 2) {
+                            _this.store.select(_core_store_selectors_turno_selectors__WEBPACK_IMPORTED_MODULE_11__["selectRtaAsignado"]).subscribe(function (rtaAsignado) {
+                                if (rtaAsignado.respuesta.codigo == 200) {
+                                    var reqLiberarTurno_1 = new _shared_models_request_models__WEBPACK_IMPORTED_MODULE_13__["LiberacionTurno"]();
+                                    _this.store.select(_core_store_selectors_turno_selectors__WEBPACK_IMPORTED_MODULE_11__["selectPacienteSelected"]).subscribe(function (ps) {
+                                        var _a;
+                                        reqLiberarTurno_1.codTurno = (_a = rta === null || rta === void 0 ? void 0 : rta.turno) === null || _a === void 0 ? void 0 : _a.codigo;
+                                        _this.store.dispatch(_core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_8__["liberarTurno"]({ liberaTurno: reqLiberarTurno_1 }));
+                                    }).unsubscribe();
+                                }
+                            }).unsubscribe();
+                        }
+                        _this.store.dispatch(_core_store_actions_turno_actions__WEBPACK_IMPORTED_MODULE_8__["clear"]());
+                    }
+                    else {
+                        //console.log("salio por " + result.event );
+                    }
                     setTimeout(function () {
                         // refescar turnos, quizas debamos hacerlo en funcion de si cancelo o cofnirmo
                         _this.loading = true;
@@ -27017,13 +27037,12 @@ var FormPrincipalComponent = /** @class */ (function () {
     };
     FormPrincipalComponent.prototype.filterProf = function (value) {
         if (value != undefined) {
-            var filterValue_1 = value.toLowerCase();
-            if (value != undefined && value != "" && !isNaN(Number(value))) {
+            if (value != "" && !isNaN(Number(value))) {
                 return this.profesionales$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (e) {
                     return e.filter(function (el) {
                         var _a, _b;
-                        return ((_a = el.nombreApellido) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(filterValue_1)) !== -1 ||
-                            ((_b = el.codigo) === null || _b === void 0 ? void 0 : _b.toString().indexOf(filterValue_1)) === 0;
+                        return ((_a = el.nombreApellido) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(value.toLowerCase())) !== -1 ||
+                            ((_b = el.codigo) === null || _b === void 0 ? void 0 : _b.toString().indexOf(value.toLowerCase())) === 0;
                     })
                         .sort(function (a, b) {
                         if (a.codigo == 0)
@@ -27041,8 +27060,8 @@ var FormPrincipalComponent = /** @class */ (function () {
             return this.profesionales$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (e) {
                 return e.filter(function (el) {
                     var _a, _b;
-                    return ((_a = el.nombreApellido) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(filterValue_1)) !== -1 ||
-                        ((_b = el.codigo) === null || _b === void 0 ? void 0 : _b.toString().indexOf(filterValue_1)) === 0;
+                    return ((_a = el.nombreApellido) === null || _a === void 0 ? void 0 : _a.toLowerCase().indexOf(value.toLowerCase())) !== -1 ||
+                        ((_b = el.codigo) === null || _b === void 0 ? void 0 : _b.toString().indexOf(value.toLowerCase())) === 0;
                 });
             }));
         }
